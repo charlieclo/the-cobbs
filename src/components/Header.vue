@@ -70,7 +70,7 @@ const moveToSection = (menuId) => {
   gap: 1em;
   position: fixed;
   z-index: 96;
-  background-color: transparent;
+  background: linear-gradient(180deg, rgba(33, 39, 33, 0.70) 0%, rgba(33, 39, 33, 0.00) 100%);
 }
 
 .header>div {
