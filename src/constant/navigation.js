@@ -1,4 +1,4 @@
-export const menus = [
+export const navigations = [
   {
     id: 'home',
     name: 'Home'

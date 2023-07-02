@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { menus } from '@/constant/menu'
+import { navigations } from '@/constant/navigation'
 import { animate } from '@/util/animation'
 
 defineProps({
@@ -50,12 +50,12 @@ const moveToSection = (menuId) => {
     </div>
     <div class="header-navigation">
       <a
-        v-for="(menu, index) in menus"
-        :key="`menu-${index}`"
-        :class="{ active: menu.id === activeNav }"
-        @click="moveToSection(menu.id)"
+        v-for="(nav, index) in navigations"
+        :key="`nav-${index}`"
+        :class="{ active: nav.id === activeNav }"
+        @click="moveToSection(nav.id)"
       >
-        {{ menu.name }}
+        {{ nav.name }}
       </a>
     </div>
   </header>
