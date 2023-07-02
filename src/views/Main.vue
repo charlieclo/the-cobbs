@@ -1,4 +1,10 @@
 <script setup>
+import { onMounted } from 'vue'
+import { animate } from '@/util/animation' 
+
+onMounted(() => {
+  animate('.main', { opacity: 1 }, 1000)
+})
 </script>
 
 <template>
@@ -17,6 +23,7 @@
   height: 100vh; /* 100% */
   overflow: hidden;
   position: relative;
+  opacity: 0;
 }
 
 .main-content {
