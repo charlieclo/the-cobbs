@@ -86,7 +86,7 @@ defineProps({
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .main-about {
     min-height: 100vh;
     flex-direction: row;
@@ -100,7 +100,7 @@ defineProps({
   }
 
   .information-headline {
-    padding-left: 109px;
+    padding-left: 10%;
     font-size: 14px;
     letter-spacing: 2.45px;
   }
@@ -109,13 +109,13 @@ defineProps({
     width: 80%;
     padding-top: 17px;
     padding-bottom: 51px;
-    padding-left: 109px;
+    padding-left: 10%;
     font-size: 115px;
   }
 
   .information-description {
     width: 70%;
-    padding-left: 109px;
+    padding-left: 10%;
     font-size: 18px;
   }
 }

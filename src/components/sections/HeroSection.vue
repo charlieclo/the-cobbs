@@ -113,7 +113,7 @@ const navigateToHomeSection = () => {
   }
   .hero-text h1 {
     width: auto;
-    font-size: 107px;
+    font-size: 106px;
     line-height: initial;
   }
 

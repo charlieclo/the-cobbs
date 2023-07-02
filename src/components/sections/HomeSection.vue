@@ -124,7 +124,7 @@ defineProps({
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .main-home {
     min-height: 100vh;
     padding-top: 0;
