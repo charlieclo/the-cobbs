@@ -103,6 +103,12 @@ defineExpose({
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .slider-image>img {
+    height: 340px;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .menu-slider {
     width: 75%;

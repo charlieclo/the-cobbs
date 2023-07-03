@@ -191,6 +191,7 @@ const changeActiveMenu = (key) => {
   .category-boulangerie {
     top: 15%;
     right: -4%;
+    z-index: 1;
   }
 
   .category-drinks {
