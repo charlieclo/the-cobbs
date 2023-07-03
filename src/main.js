@@ -6,7 +6,7 @@ import { DefaultApolloClient } from '@vue/apollo-composable'
 
 // Create HTTP Link for GraphQL
 const httpLink = createHttpLink({
-  uri: '/the-cobbs/graphql'
+  uri: '/graphql'
 })
 
 // Construct In Memory Cache

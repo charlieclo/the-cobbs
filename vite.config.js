@@ -11,9 +11,10 @@ export default ({ mode }) => {
     base: './',
     server: {
       proxy: {
-        '^/the-cobbs/graphql': {
+        '^/graphql': {
           target: mode === 'production' ? process.env.BASE_URL : process.env.VITE_GRAPHQL_URL,
           changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/graphql/, process.env.VITE_GRAPHQL_PATH)
         }
       },
     },
