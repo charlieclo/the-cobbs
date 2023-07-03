@@ -1,0 +1,220 @@
+<script setup>
+import { ref } from 'vue'
+import { animate } from '@/util/animation'
+import MenuSlider from '@/components/MenuSlider.vue'
+
+defineProps({
+  menuData: Object
+})
+
+const slider = ref(null)
+const activeMenu = ref('Mains')
+
+const changeActiveMenu = (key) => {
+  if (activeMenu.value !== key) {
+    animate('#menu-title', { opacity: 0 }, 150, () => {
+      slider.value.changeActiveDots(0)
+      activeMenu.value = key
+      animate('#menu-title', { opacity: 1 }, 150)
+    })
+  }
+}
+</script>
+
+<template>
+  <div id="menu" class="main-menu">
+    <div class="menu-selector">
+      <img
+        v-for="(menu, index) of Object.entries(menuData)"
+        :key="`menuCategory-${index}`"
+        :src="menu[1].category.mediaItemUrl"
+        :class="`category-${menu[0].toLowerCase()}`"
+        loading="lazy"
+        @click="changeActiveMenu(menu[0])"
+      />
+    </div>
+    <div class="menu-selector-mobile">
+      <div class="selector-headline">MENU</div>
+      <div class="selector-container">
+        <div
+          v-for="(menu, index) of Object.entries(menuData)"
+          :key="`select-${index}`"
+          :class="{ 'active':  menu[0] === activeMenu }"
+          class="selector-tab"
+          @click="changeActiveMenu(menu[0])"
+        >
+          {{ menu[0].toUpperCase() }}
+        </div>
+      </div>
+    </div>
+    <div class="menu-information">
+      <div class="information-headline">OUR MENU</div>
+      <div id="menu-title" class="information-title">{{ activeMenu }}</div>
+      <MenuSlider ref="slider" :images="menuData[activeMenu].products ?? []" />
+    </div>
+  </div>  
+</template>
+
+<style scoped>
+.main-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-selector {
+  display: none;
+  background-color: var(--cobbs-dark-beige);
+}
+
+.menu-selector>img {
+  width: 36.5%;
+  min-width: 250px;
+  height: 32.5%;
+  min-height: 250px;
+  object-fit: contain;
+  position: absolute;
+  cursor: pointer;
+}
+
+.menu-selector-mobile {
+  flex-basis: 0;
+  padding: 40px 0 16px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  background-color: var(--cobbs-grey);
+}
+
+.selector-headline {
+  width: 100%;
+  font-family: 'TT Norms Pro';
+  font-size: 2.15vw;
+  font-weight: 500;
+  line-height: 129%;
+  letter-spacing: 1.75px;
+  background: var(--cobbs-gradient);
+  -webkit-text-fill-color: transparent;
+  background-clip: initial;
+  -webkit-background-clip: text;
+}
+
+.selector-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.selector-tab {
+  padding: 10px 25px;
+  border: 1px solid var(--cobbs-brown);
+  border-radius: 19.5px;
+  font-family: 'TT Norms Pro';
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 1.7px;
+  text-align: center;
+  color: var(--cobbs-black);
+}
+
+.selector-tab.active {
+  background-color: var(--cobbs-brown);
+}
+
+.menu-information {
+  flex-basis: auto;
+  padding: 15px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cobbs-grey);
+}
+
+.information-headline {
+  width: 100%;
+  padding: 0 16px;
+  display: none;
+  text-align: center;
+  font-family: 'TT Norms Pro';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 129%;
+  letter-spacing: 2.45px;
+  background: var(--cobbs-gradient);
+  -webkit-text-fill-color: transparent;
+  background-clip: initial;
+  -webkit-background-clip: text;
+}
+
+.information-title {
+  padding: 0 0 15px 0;
+  font-size: 56px;
+  font-weight: 200;
+  line-height: 100%;
+  color: var(--cobbs-dark-beige);
+}
+
+@media screen and (min-width: 1024px) {
+  .main-menu {
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    flex-direction: row;
+  }
+
+  .menu-selector {
+    flex-basis: 50%;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .category-mains {
+    top: 35%;
+    left: 30%;
+  }
+
+  .category-appertizer {
+    top: 10%;
+    left: -5%;
+  }
+
+  .category-desserts {
+    left: 5%;
+    bottom: 3%;
+  }
+
+  .category-boulangerie {
+    top: 15%;
+    right: -4%;
+  }
+
+  .category-drinks {
+    right: -1%;
+    bottom: -2%;
+  }
+
+  .menu-selector-mobile {
+    display: none;
+  }
+
+  .menu-information {
+    flex-basis: 50%;
+    height: auto;
+    padding: 112px 0;
+  }
+
+  .information-headline {
+    display: block;
+  }
+
+  .information-title {
+    padding: 28px 0 39px 0;
+    font-size: 115px;
+  }
+}
+</style>
