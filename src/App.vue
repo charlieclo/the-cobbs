@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import { GET_ALL_DATA_QUERY } from '@/graphql/query'
 import { initiateMenuData } from '@/util/menu'
+import { initiateEventData } from '@/util/event'
 
 const { result, error, loading } = useQuery(GET_ALL_DATA_QUERY)
 const data = computed(() => result.value?.menus.nodes[0].settings ?? {})
@@ -18,6 +19,7 @@ import Hero from '@/components/sections/HeroSection.vue'
 import Home from '@/components/sections/HomeSection.vue'
 import About from '@/components/sections/AboutSection.vue'
 import Menu from '@/components/sections/MenuSection.vue'
+import Event from '@/components/sections/EventSection.vue'
 
 const header = ref(null)
 
@@ -64,6 +66,7 @@ const changeActiveNav = (nav) => {
           :image="data.about.image"
         />
         <Menu :menuData="initiateMenuData(data)" />
+        <Event :eventData="initiateEventData(data)" />
       </template>
     </Main>
   </template>

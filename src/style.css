@@ -20,9 +20,25 @@
 
 @font-face {
   font-family: 'TT Norms Pro';
+  src: url('./assets/fonts/TT-Norms-Pro-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 200;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
   src: url('./assets/fonts/TT-Norms-Pro-Medium.otf') format('opentype');
   font-style: normal;
   font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('./assets/fonts/TT-Norms-Pro-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
   text-rendering: optimizeLegibility;
 }
 

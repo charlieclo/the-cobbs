@@ -221,6 +221,56 @@ export const GET_ALL_DATA_QUERY = gql`
               mimeType
             }
           }
+          event1 {
+            title
+            url
+            date
+            image {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          event2 {
+            title
+            url
+            date
+            image {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          event3 {
+            title
+            url
+            date
+            image {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          event4 {
+            title
+            url
+            date
+            image {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          event5 {
+            title
+            url
+            date
+            image {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
           gallery {
             title
             description
