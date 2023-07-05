@@ -168,7 +168,7 @@ const slideChange = () => {
 }
 
 .information-date {
-  padding-bottom: 14px;
+  padding-bottom: 8px;
   font-family: 'TT Norms Pro';
   font-size: 1vw;
   font-weight: 700;
