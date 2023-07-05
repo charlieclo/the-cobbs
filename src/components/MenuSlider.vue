@@ -31,7 +31,7 @@ defineExpose({
     </div>
     <div class="slider-control">
       <img
-        src="../assets/Chevron Left.svg"
+        src="@/assets/Chevron Left.svg"
         class="slider-chevron"
         @click="changeActiveDots(activeDots - 1)"
         />
@@ -44,7 +44,7 @@ defineExpose({
         />
       </div>
       <img
-        src="../assets/Chevron Right.svg"
+        src="@/assets/Chevron Right.svg"
         class="slider-chevron"
         @click="changeActiveDots(activeDots + 1)"
       />
