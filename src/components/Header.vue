@@ -20,6 +20,9 @@ defineExpose({
 
 const onLogoClick = () => {
   changeActiveNav('')
+  const offset = $('.main-content').offset().top - $('.main').scrollTop();
+  $('#hero').removeClass('display-none')
+  $('.main').scrollTop($('.main-content').offset().top - offset);
   animate('.main', { scrollTop: $('#hero').offset().top }, 1000, () => {
     $('.main-content').scrollTop(0)
   })
@@ -27,10 +30,12 @@ const onLogoClick = () => {
 
 const moveToSection = (menuId) => {
   changeActiveNav(menuId)
-  if ($('#hero').offset().top === 0) {
+  if ($('#hero').offset().top === 0 && !($('#hero').hasClass('display-none'))) {
     animate('.main-content', { scrollTop: $('#hero').outerHeight() }, 0, () => {
       animate('.main-content', { scrollTop: $(`#${menuId}`).offset().top }, 0, () => {
-        animate('.main', { scrollTop: $('.main-content').offset().top }, 500)
+        animate('.main', { scrollTop: $('.main-content').offset().top }, 500, () => {
+          $('#hero').addClass('display-none')
+        })
         animate('.hero-img', { opacity: 0.1 }, 1000)
       })
     })
