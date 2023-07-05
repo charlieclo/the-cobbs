@@ -150,6 +150,7 @@ const slideChange = () => {
 }
 
 .information-detail {
+  align-self: center;
   padding: 0 10px;
   display: flex;
   justify-content: center;
