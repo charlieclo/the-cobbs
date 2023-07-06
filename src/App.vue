@@ -6,7 +6,7 @@ import { initiateMenuData } from '@/util/menu'
 import { initiateEventData } from '@/util/event'
 
 const { result, error, loading } = useQuery(GET_ALL_DATA_QUERY)
-const data = computed(() => result.value?.menus.nodes[0].settings ?? {})
+const data = computed(() => result.value?.mainPages.nodes[0].pageSettings ?? {})
 const errorMessage = computed(() => error.value ?? null)
 
 // Views

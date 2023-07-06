@@ -15,15 +15,15 @@ defineProps({
       <div v-html="description" class="information-description"></div>
     </div>
     <div class="home-image">
-      <img :src="image1.mediaItemUrl" loading="lazy" />
-      <img :src="image2.mediaItemUrl" loading="lazy" />
-      <img :src="image3.mediaItemUrl" loading="lazy" />
+      <img :src="image1.node.mediaItemUrl" loading="lazy" />
+      <img :src="image2.node.mediaItemUrl" loading="lazy" />
+      <img :src="image3.node.mediaItemUrl" loading="lazy" />
     </div>
     <div class="home-image-mobile">
       <div>
-        <img :src="image1.mediaItemUrl" loading="lazy" />
-        <img :src="image2.mediaItemUrl" loading="lazy" />
-        <img :src="image3.mediaItemUrl" loading="lazy" />
+        <img :src="image1.node.mediaItemUrl" loading="lazy" />
+        <img :src="image2.node.mediaItemUrl" loading="lazy" />
+        <img :src="image3.node.mediaItemUrl" loading="lazy" />
       </div>
     </div>
   </div>

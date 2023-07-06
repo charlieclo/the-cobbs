@@ -48,10 +48,10 @@ const moveToSection = (menuId) => {
 <template>
   <header class="header">
     <div class="header-logo">
-      <img :src="logo.mediaItemUrl" loading="lazy" @click="onLogoClick()" />
+      <img :src="logo.node.mediaItemUrl" loading="lazy" @click="onLogoClick()" />
     </div>
     <div class="header-logo-mobile">
-      <img :src="logoMobile.mediaItemUrl" loading="lazy" @click="onLogoClick()" />
+      <img :src="logoMobile.node.mediaItemUrl" loading="lazy" @click="onLogoClick()" />
     </div>
     <div class="header-navigation">
       <a

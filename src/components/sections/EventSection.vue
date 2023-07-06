@@ -100,7 +100,7 @@ const slideChange = () => {
       />
     </div>
     <div class="event-image">
-      <img :src="eventData[activeEvent].image.mediaItemUrl" />
+      <img :src="eventData[activeEvent].image.node.mediaItemUrl" />
     </div>
     <div class="event-image-mobile">
       <swiper
@@ -113,7 +113,7 @@ const slideChange = () => {
           v-for="(event, index) in eventData"
           :key="`slide-${index}`"
         >
-        <img :src="event.image.mediaItemUrl" />
+        <img :src="event.image.node.mediaItemUrl" />
         </swiper-slide>
       </swiper>
     </div>

@@ -9,7 +9,7 @@ defineProps({
 <template>
   <div id="about" class="main-about">
     <div class="about-image">
-      <img :src="image.mediaItemUrl" loading="lazy" />
+      <img :src="image.node.mediaItemUrl" loading="lazy" />
     </div>
     <div class="about-information">
       <div class="information-headline">ABOUT THE COBBS</div>

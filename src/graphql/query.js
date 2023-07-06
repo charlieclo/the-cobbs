@@ -1,224 +1,299 @@
 import gql from 'graphql-tag'
 
 export const GET_ALL_DATA_QUERY = gql`
-  query GET_ALL_DATA {
-    menus {
+  query GET_ALL_DATA_QUERY {
+    mainPages(where: {title: "Settings"}) {
       nodes {
-        name
-        settings {
+        pageSettings {
           promo {
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           header {
             logo {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             logoMobile {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           hero {
             title
             background {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           home {
             title
             description
             image1 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             image2 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             image3 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           about {
             title
             description
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           mains {
             categoryImage {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage1 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage2 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage3 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage4 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage5 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           appertizer {
             categoryImage {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage1 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage2 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage3 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage4 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage5 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           desserts {
             categoryImage {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage1 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage2 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage3 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage4 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage5 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           boulangerie {
             categoryImage {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage1 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage2 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage3 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage4 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage5 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           drinks {
             categoryImage {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage1 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage2 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage3 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage4 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             productImage5 {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           event1 {
@@ -226,9 +301,11 @@ export const GET_ALL_DATA_QUERY = gql`
             url
             date
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           event2 {
@@ -236,9 +313,11 @@ export const GET_ALL_DATA_QUERY = gql`
             url
             date
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           event3 {
@@ -246,9 +325,11 @@ export const GET_ALL_DATA_QUERY = gql`
             url
             date
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           event4 {
@@ -256,9 +337,11 @@ export const GET_ALL_DATA_QUERY = gql`
             url
             date
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           event5 {
@@ -266,9 +349,11 @@ export const GET_ALL_DATA_QUERY = gql`
             url
             date
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
           }
           gallery {
@@ -289,9 +374,11 @@ export const GET_ALL_DATA_QUERY = gql`
           }
           rsvp {
             image {
-              mediaItemUrl
-              mediaType
-              mimeType
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
             }
             url
           }

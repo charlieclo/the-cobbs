@@ -26,14 +26,14 @@ const navigateToHomeSection = () => {
 <template>
   <div id="hero" class="hero-container">
     <img
-      v-if="checkMimeType(background.mimeType, 'image')"
-      :src="background.mediaItemUrl"
+      v-if="checkMimeType(background.node.mimeType, 'image')"
+      :src="background.node.mediaItemUrl"
       loading="lazy"
       class="hero-background"
     />
     <video
-      v-else-if="checkMimeType(background.mimeType, 'video')"
-      :src="background.mediaItemUrl"
+      v-else-if="checkMimeType(background.node.mimeType, 'video')"
+      :src="background.node.mediaItemUrl"
       autoplay
       muted
       loop
