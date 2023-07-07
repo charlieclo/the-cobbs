@@ -124,7 +124,7 @@ const changeActiveGallery = (index) => {
 }
 
 .information-detail {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 200;
   line-height: 0%;
   color: var(--cobbs-grey);
@@ -176,7 +176,7 @@ const changeActiveGallery = (index) => {
     width: 67%;
   }
 
-  .information-title {
+  .information-detail {
     font-size: 43px;
   }
 
@@ -185,7 +185,7 @@ const changeActiveGallery = (index) => {
   }
 
   .information-control>img {
-    width: 1vw;
+    width: 18px;
   }
 }
 </style>
