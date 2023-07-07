@@ -30,7 +30,6 @@ const heroTextDragHandler = ({ movement: [x, y], dragging }) => {
     })
     return
   } else if (!dragging) {
-    console.log('hehe')
     $('.main-content').css({ 
       transition: 'transform 1s ease-out',
       transform: `translateY(0px)`
