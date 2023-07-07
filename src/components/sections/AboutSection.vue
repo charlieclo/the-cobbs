@@ -32,7 +32,7 @@ defineProps({
 
 .about-image>img {
   width: 100%;
-  height: 100%;
+  height: 520px;
   object-fit: cover;
 }
 
@@ -90,6 +90,10 @@ defineProps({
   .main-about {
     min-height: 100vh;
     flex-direction: row;
+  }
+
+  .about-image>img {
+    height: 100%;
   }
 
   .about-information {
