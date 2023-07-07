@@ -14,13 +14,10 @@ const changeActiveNav = (nav) => {
   activeNav.value = nav
 }
 
-defineExpose({
-  changeActiveNav
-})
-
 const onLogoClick = () => {
   changeActiveNav('')
   const offset = $('.main-content').offset().top - $('.main').scrollTop();
+  $('.header-logo-mobile').removeClass('display-none')
   $('#hero').removeClass('display-none')
   $('.main').scrollTop($('.main-content').offset().top - offset);
   animate('.main', { scrollTop: $('#hero').offset().top }, 1000, () => {
@@ -34,6 +31,7 @@ const moveToSection = (menuId) => {
     animate('.main-content', { scrollTop: $('#hero').outerHeight() }, 0, () => {
       animate('.main-content', { scrollTop: $(`#${menuId}`).offset().top }, 0, () => {
         animate('.main', { scrollTop: $('.main-content').offset().top }, 500, () => {
+          $('.header-logo-mobile').addClass('display-none')
           $('#hero').addClass('display-none')
         })
         animate('.hero-img', { opacity: 0.1 }, 1000)
@@ -43,6 +41,11 @@ const moveToSection = (menuId) => {
     $(`#${menuId}`).get(0).scrollIntoView({ behavior: 'smooth' })
   }
 }
+
+defineExpose({
+  changeActiveNav,
+  onLogoClick
+})
 </script>
 
 <template>
@@ -73,8 +76,8 @@ const moveToSection = (menuId) => {
   justify-content: center;
   align-items: center;
   gap: 1em;
-  position: fixed;
-  z-index: 96;
+  position: absolute;
+  z-index: 0;
   background: linear-gradient(180deg, rgba(33, 39, 33, 0.70) 0%, rgba(33, 39, 33, 0.00) 100%);
 }
 
@@ -143,23 +146,12 @@ const moveToSection = (menuId) => {
   -webkit-background-clip: text;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .header-logo {
-    display: block;
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .header-logo>img {
-    width: 243px;
-  }
-
-  .header-logo-mobile {
-    display: none;
-  }
-}
-
 @media screen and (min-width: 1024px) {
+  .header {
+    position: fixed;
+    z-index: 96;
+  }
+
   .header-logo {
     display: block;
   }

@@ -1,15 +1,25 @@
 <script setup>
 defineProps({
+  logoMobile: Object,
   title: String,
   description: String,
   image1: Object,
   image2: Object,
   image3: Object
 })
+
+const emit = defineEmits(['logo-click'])
 </script>
 
 <template>
   <div id="home" class="main-home">
+    <div class="home-header">
+      <img
+        :src="logoMobile.node.mediaItemUrl"
+        loading="lazy"
+        @click="emit('logo-click')"
+      />
+    </div>
     <div class="home-information">
       <div v-html="title" class="information-title"></div>
       <div v-html="description" class="information-description"></div>
@@ -31,13 +41,25 @@ defineProps({
 
 <style scoped>
 .main-home {
-  padding-top: 103px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
   /* gap: 70px; */
   background-color: var(--cobbs-black);
+}
+
+.home-header {
+  padding-top: 30px;
+  text-align: center;
+  order: 3;
+}
+
+.home-header>img {
+  width: 98px;
+  height: 64px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .home-information {
@@ -131,6 +153,10 @@ defineProps({
     overflow: hidden;
     flex-direction: row;
     gap: 0;
+  }
+
+  .home-header {
+    display: none;
   }
 
   .home-information {

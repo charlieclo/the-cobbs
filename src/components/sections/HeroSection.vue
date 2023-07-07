@@ -16,6 +16,7 @@ const navigateToHomeSection = () => {
   emit('click-more', 'home')
   animate('.main-content', { scrollTop: 0 }, 0, () => {
     animate('.main', { scrollTop: $('.main').scrollTop() + $('.main-content').offset().top }, 500, () => {
+      $('.header-logo-mobile').addClass('display-none')
       $('#hero').addClass('display-none')
     })
     animate('.hero-img', { opacity: 0.5 }, 1000)

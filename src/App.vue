@@ -38,6 +38,10 @@ const header = ref(null)
 const changeActiveNav = (nav) => {
   header.value.changeActiveNav(nav)
 }
+
+const onLogoClick = () => {
+  header.value.onLogoClick()
+}
 </script>
 
 <template>
@@ -66,11 +70,13 @@ const changeActiveNav = (nav) => {
       </template>
       <template #content>
         <Home
+          :logoMobile="data.header.logoMobile"
           :title="data.home.title"
           :description="data.home.description"
           :image1="data.home.image1"
           :image2="data.home.image2"
           :image3="data.home.image3"
+          @logoClick="onLogoClick"
         />
         <About
           :title="data.about.title"
