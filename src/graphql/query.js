@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
-export const GET_ALL_DATA_QUERY = gql`
-  query GET_ALL_DATA_QUERY {
+export const GET_MAIN_PAGE_SETTINGS = gql`
+  query GET_MAIN_PAGE_SETTINGS {
     mainPages(where: {title: "Settings"}) {
       nodes {
         pageSettings {
@@ -381,6 +381,122 @@ export const GET_ALL_DATA_QUERY = gql`
               }
             }
             url
+          }
+        }
+      }
+    }
+  }
+`
+
+export const GET_GALLERY_IMAGES = gql`
+  query GET_GALLERY_IMAGES {
+    mainPages(where: {title: "Gallery"}) {
+      nodes {
+        gallerySettings {
+          image1 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image2 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image3 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image4 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image5 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image6 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image7 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image8 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image9 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image10 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image11 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image12 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image13 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image14 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
+          }
+          image15 {
+            node {
+              mediaItemUrl
+              mediaType
+              mimeType
+            }
           }
         }
       }

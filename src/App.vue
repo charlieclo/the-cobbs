@@ -1,13 +1,24 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
-import { GET_ALL_DATA_QUERY } from '@/graphql/query'
+import { GET_MAIN_PAGE_SETTINGS, GET_GALLERY_IMAGES } from '@/graphql/query'
 import { initiateMenuData } from '@/util/menu'
 import { initiateEventData } from '@/util/event'
+import { initiateGalleryImages } from '@/util/gallery'
 
-const { result, error, loading } = useQuery(GET_ALL_DATA_QUERY)
-const data = computed(() => result.value?.mainPages.nodes[0].pageSettings ?? {})
-const errorMessage = computed(() => error.value ?? null)
+const {
+  result: mainPageSettingsResult,
+  error: mainPageSettingsError,
+  loading: mainPageSettingsLoading
+} = useQuery(GET_MAIN_PAGE_SETTINGS)
+const data = computed(() => mainPageSettingsResult.value?.mainPages.nodes[0].pageSettings ?? {})
+const errorMessage = computed(() => mainPageSettingsError.value ?? null)
+
+const {
+  result: galleryImagesResult,
+  loading: galleryImagesLoading
+} = useQuery(GET_GALLERY_IMAGES)
+const galleryImages = computed(() => galleryImagesResult.value?.mainPages.nodes[0].gallerySettings ?? {})
 
 // Views
 import Main from '@/views/Main.vue'
@@ -20,6 +31,7 @@ import Home from '@/components/sections/HomeSection.vue'
 import About from '@/components/sections/AboutSection.vue'
 import Menu from '@/components/sections/MenuSection.vue'
 import Event from '@/components/sections/EventSection.vue'
+import Gallery from '@/components/sections/GallerySection.vue'
 
 const header = ref(null)
 
@@ -29,7 +41,7 @@ const changeActiveNav = (nav) => {
 </script>
 
 <template>
-  <template v-if="loading">
+  <template v-if="mainPageSettingsLoading">
     <Loading />
   </template>
   <template v-else>
@@ -67,6 +79,12 @@ const changeActiveNav = (nav) => {
         />
         <Menu :menuData="initiateMenuData(data)" />
         <Event :eventData="initiateEventData(data)" />
+        <Gallery
+          v-if="!galleryImagesLoading"
+          :title="data.gallery.title"
+          :description="data.gallery.description"
+          :images="initiateGalleryImages(galleryImages)"
+        />
       </template>
     </Main>
   </template>
