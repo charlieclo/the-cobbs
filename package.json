@@ -11,9 +11,11 @@
   "dependencies": {
     "@apollo/client": "^3.7.16",
     "@vue/apollo-composable": "^4.0.0-beta.7",
+    "@vueuse/gesture": "^2.0.0-beta.1",
     "graphql": "^16.7.1",
     "graphql-tag": "^2.12.6",
     "jquery": "^3.7.0",
+    "mobile-device-detect": "^0.4.3",
     "moment": "^2.29.4",
     "swiper": "^10.0.3",
     "vue": "^3.2.47"

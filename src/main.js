@@ -1,6 +1,7 @@
 import { createApp, h, provide } from 'vue'
 import './style.css'
 import App from './App.vue'
+import { GesturePlugin } from '@vueuse/gesture'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import { DefaultApolloClient } from '@vue/apollo-composable'
 
@@ -28,6 +29,9 @@ const app = createApp({
   },
   render: () => h(App)
 })
+
+// Gesture
+app.use(GesturePlugin)
 
 // Mount to App
 app.mount('#app')

@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue'
+import { isMobile } from 'mobile-device-detect'
+import { useDrag } from '@vueuse/gesture'
 import { animate } from '@/util/animation'
 
 defineProps({
@@ -7,6 +10,40 @@ defineProps({
 })
 
 const emit = defineEmits(['click-more'])
+
+const heroText = ref(null)
+
+const heroTextDragHandler = ({ movement: [x, y], dragging }) => {
+  if (dragging && y < 0) {
+    $('.main-content').css({ transform: `translateY(${y}px)` })
+  } else if (!dragging && y <= -120) {
+    animate('.main-content', { scrollTop: 0 }, 0, () => {
+      animate('.main', { scrollTop: $('.main').scrollTop() + $('.main-content').offset().top }, 1000, () => {
+        $('.main-content').css({
+          transition: 'transform 0s',
+          transform: `translateY(0px)`
+        })
+        $('.header-logo-mobile').addClass('display-none')
+        $('#hero').addClass('display-none')
+      })
+      animate('.hero-img', { opacity: 0.5 }, 1500)
+    })
+    return
+  } else if (!dragging) {
+    console.log('hehe')
+    $('.main-content').css({ 
+      transition: 'transform 1s ease-out',
+      transform: `translateY(0px)`
+    })
+    return
+  }
+}
+
+useDrag(heroTextDragHandler, {
+  domTarget: heroText,
+  enabled: isMobile,
+  filterTaps: true
+})
 
 const checkMimeType = (storedMimeType, mimeType) => {
   return storedMimeType.includes(mimeType)
@@ -40,7 +77,11 @@ const navigateToHomeSection = () => {
       loop
       class="hero-background"
     />
-    <div class="hero-text" @click="navigateToHomeSection()">
+    <div
+      ref="heroText"
+      class="hero-text"
+      @click="navigateToHomeSection()"
+    >
       <div>
         <h1 v-html="title"></h1>
       </div>
