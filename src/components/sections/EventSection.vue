@@ -68,8 +68,9 @@ const slideChange = () => {
       <a
         v-for="(event, index) in eventData"
         :key="`event-${index}`"
-        href="#"
+        :href="event.url"
         target="_blank"
+        rel="noopener noreferrer"
         class="information-detail"
         @mouseover="changeActiveEvent(index)"
       >
