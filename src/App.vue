@@ -32,6 +32,7 @@ import About from '@/components/sections/AboutSection.vue'
 import Menu from '@/components/sections/MenuSection.vue'
 import Event from '@/components/sections/EventSection.vue'
 import Gallery from '@/components/sections/GallerySection.vue'
+import FindUs from '@/components/sections/FindUsSection.vue'
 
 const header = ref(null)
 
@@ -90,6 +91,11 @@ const onLogoClick = () => {
           :title="data.gallery.title"
           :description="data.gallery.description"
           :images="initiateGalleryImages(galleryImages)"
+        />
+        <FindUs
+          :location="data.location"
+          :contact="data.contacts"
+          :workingHours="data.workingHours"
         />
       </template>
     </Main>

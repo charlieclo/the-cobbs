@@ -364,15 +364,6 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
             title
             address
             url
-          }
-          contacts {
-            phone
-            email
-            whatsappUrl
-            instagramUrl
-            instagramUsername
-          }
-          rsvp {
             image {
               node {
                 mediaItemUrl
@@ -380,7 +371,24 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
                 mimeType
               }
             }
-            url
+          }
+          contacts {
+            phone
+            email
+            whatsappUrl
+            instagramUrl
+            instagramUsername
+            rsvpUrl
+          }
+          workingHours {
+            weekday {
+              open
+              close
+            }
+            weekend {
+              open
+              close
+            }
           }
         }
       }

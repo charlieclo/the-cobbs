@@ -42,6 +42,14 @@
   text-rendering: optimizeLegibility;
 }
 
+@font-face {
+  font-family: Conso;
+  src: url('./assets/fonts/Conso-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
 :root {
   --cobbs-beige: #8F826D;
   --cobbs-dark-beige: #615441;
