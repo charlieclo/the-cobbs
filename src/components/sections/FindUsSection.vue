@@ -124,7 +124,7 @@ defineProps({
 }
 
 .information-contacts {
-  padding: 0 17px 0 15px;
+  padding: 0 17px 140px 15px;
 }
 
 .information-opening .information-headline,
