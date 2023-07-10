@@ -33,6 +33,7 @@ import Menu from '@/components/sections/MenuSection.vue'
 import Event from '@/components/sections/EventSection.vue'
 import Gallery from '@/components/sections/GallerySection.vue'
 import FindUs from '@/components/sections/FindUsSection.vue'
+import Footer from '@/components/Footer.vue'
 
 const header = ref(null)
 
@@ -42,6 +43,10 @@ const changeActiveNav = (nav) => {
 
 const onLogoClick = () => {
   header.value.onLogoClick()
+}
+
+const moveToSection = (nav) => {
+  header.value.moveToSection(nav)
 }
 </script>
 
@@ -96,6 +101,15 @@ const onLogoClick = () => {
           :location="data.location"
           :contact="data.contacts"
           :workingHours="data.workingHours"
+        />
+        <Footer
+          :logo="data.header.logo"
+          :logoMobile="data.header.logoMobile"
+          :contact="data.contacts"
+          :background="data.footer.image"
+          :disclaimer="data.footer.disclaimer"
+          :company="data.footer.company"
+          @navClick="moveToSection"
         />
       </template>
     </Main>

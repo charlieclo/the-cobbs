@@ -44,7 +44,8 @@ const moveToSection = (menuId) => {
 
 defineExpose({
   changeActiveNav,
-  onLogoClick
+  onLogoClick,
+  moveToSection
 })
 </script>
 

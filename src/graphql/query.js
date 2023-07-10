@@ -390,6 +390,17 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
               close
             }
           }
+          footer {
+            image {
+              node {
+                mediaItemUrl
+                mediaType
+                mimeType
+              }
+            }
+            disclaimer
+            company
+          }
         }
       }
     }
