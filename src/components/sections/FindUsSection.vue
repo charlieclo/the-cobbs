@@ -175,6 +175,9 @@ defineProps({
 
   .find-us-information {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .information-headline {
@@ -202,7 +205,7 @@ defineProps({
   }
 
   .information-contacts {
-    padding: 0 148px 0 calc(12% - 11px);
+    padding: 0 148px 98px calc(12% - 11px);
   }
 
   .information-opening .information-headline,
