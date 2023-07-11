@@ -1,25 +1,39 @@
 <script setup>
 import { defineComponent, ref, toRefs } from 'vue'
+import { Waypoint } from 'vue-waypoint'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import { animate } from '@/util/animation'
 import moment from 'moment'
 
 defineComponent({
+  Waypoint,
   Swiper,
   SwiperSlide
 })
 
 const props = defineProps({
+  waypointActive: {
+    type: Boolean,
+    default: false  
+  },
   eventData: {
     type: Array,
     default: []
   }
 })
 
+const emit = defineEmits(['waypoint-hit'])
+
 const { eventData } = toRefs(props)
 const eventSwiper = ref(null)
 const activeEvent = ref(0)
+
+const waypointChange = (state) => {
+  if (state.going === 'IN') {
+    emit('waypoint-hit', 'events')
+  }
+}
 
 const onSwiper = (swiper) => {
   eventSwiper.value = swiper
@@ -59,10 +73,22 @@ const slide = (index) => {
 const slideChange = () => {
   activeEvent.value = eventSwiper.value.realIndex
 }
+
+const waypointOptions = {
+  root: document,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: [0.5, 0.5],
+}
 </script>
 
 <template>
-  <div id="events" class="main-event">
+  <Waypoint
+    :active="waypointActive"
+    :options="waypointOptions"
+    id="events"
+    class="main-event"
+    @change="waypointChange"
+  >
     <div class="event-information">
       <div class="information-headline">EVENTS</div>
       <a
@@ -118,7 +144,7 @@ const slideChange = () => {
         </swiper-slide>
       </swiper>
     </div>
-  </div>
+  </Waypoint>
 </template>
 
 <style scoped>

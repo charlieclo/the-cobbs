@@ -8,7 +8,7 @@ defineProps({
   logoMobile: Object
 })
 
-const emit = defineEmits(['toggle-promo'])
+const emit = defineEmits(['toggle-promo', 'toggle-waypoint'])
 
 const activeNav = ref('')
 
@@ -18,6 +18,7 @@ const changeActiveNav = (nav) => {
 
 const onLogoClick = () => {
   changeActiveNav('')
+  emit('toggle-waypoint', false)
   emit('toggle-promo', true)
   const offset = $('.main-content').offset().top - $('.main').scrollTop();
   $('.header-logo-mobile').removeClass('display-none')
@@ -38,6 +39,7 @@ const moveToSection = (menuId) => {
         animate('.main', { scrollTop: $('.main-content').offset().top }, 500, () => {
           $('.header-logo-mobile').addClass('display-none')
           $('#hero').addClass('display-none')
+          emit('toggle-waypoint', true)
         })
         animate('.hero-img', { opacity: 0.1 }, 1000)
       })

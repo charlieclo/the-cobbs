@@ -9,7 +9,7 @@ defineProps({
   background: Object
 })
 
-const emit = defineEmits(['click-more'])
+const emit = defineEmits(['click-more', 'toggle-waypoint'])
 
 const heroText = ref(null)
 
@@ -31,6 +31,7 @@ const heroTextDragHandler = ({ movement: [x, y], dragging }) => {
         })
         $('.header-logo-mobile').addClass('display-none')
         $('#hero').addClass('display-none')
+        emit('toggle-waypoint', true)
       })
       animate('.hero-img', { opacity: 0.5 }, 1500)
     })
@@ -63,6 +64,7 @@ const navigateToHomeSection = () => {
     animate('.main', { scrollTop: $('.main').scrollTop() + $('.main-content').offset().top }, 500, () => {
       $('.header-logo-mobile').addClass('display-none')
       $('#hero').addClass('display-none')
+      emit('toggle-waypoint', true)
     })
     animate('.hero-img', { opacity: 0.5 }, 1000)
   })

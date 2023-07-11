@@ -18,7 +18,8 @@
     "mobile-device-detect": "^0.4.3",
     "moment": "^2.29.4",
     "swiper": "^10.0.3",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-waypoint": "^4.2.5"
   },
   "devDependencies": {
     "@rollup/plugin-inject": "^5.0.3",

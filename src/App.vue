@@ -39,6 +39,7 @@ const RSVPButton = defineAsyncComponent(() => import('@/components/RSVPButton.vu
 
 const promo = ref(null)
 const header = ref(null)
+const waypointActive = ref(false)
 
 const togglePromo = (toggle) => {
   if (promo.value !== null) promo.value.togglePromo(toggle)
@@ -54,6 +55,10 @@ const onLogoClick = () => {
 
 const moveToSection = (nav) => {
   header.value.moveToSection(nav)
+}
+
+const changeWaypointActive = (active) => {
+  waypointActive.value = active
 }
 </script>
 
@@ -80,6 +85,7 @@ const moveToSection = (nav) => {
           :logo="data.header.logo"
           :logoMobile="data.header.logoMobile"
           @togglePromo="togglePromo"
+          @toggleWaypoint="changeWaypointActive"
         />
       </template>
       <template #hero>
@@ -87,10 +93,12 @@ const moveToSection = (nav) => {
           :title="data.hero.title"
           :background="data.hero.background"
           @clickMore="changeActiveNav"
+          @toggleWaypoint="changeWaypointActive"
         />
       </template>
       <template #content>
         <Home
+          :waypointActive="waypointActive"
           :logoMobile="data.header.logoMobile"
           :title="data.home.title"
           :description="data.home.description"
@@ -98,24 +106,39 @@ const moveToSection = (nav) => {
           :image2="data.home.image2"
           :image3="data.home.image3"
           @logoClick="onLogoClick"
+          @waypointHit="changeActiveNav"
         />
         <About
+          :waypointActive="waypointActive"
           :title="data.about.title"
           :description="data.about.description"
           :image="data.about.image"
+          @waypointHit="changeActiveNav"
         />
-        <Menu :menuData="initiateMenuData(data)" />
-        <Event :eventData="initiateEventData(data)" />
+        <Menu
+          :waypointActive="waypointActive"
+          :menuData="initiateMenuData(data)"
+          @waypointHit="changeActiveNav"
+        />
+        <Event
+          :waypointActive="waypointActive"
+          :eventData="initiateEventData(data)"
+          @waypointHit="changeActiveNav"
+        />
         <Gallery
           v-if="!galleryImagesLoading"
+          :waypointActive="waypointActive"
           :title="data.gallery.title"
           :description="data.gallery.description"
           :images="initiateGalleryImages(galleryImages)"
+          @waypointHit="changeActiveNav"
         />
         <FindUs
+          :waypointActive="waypointActive"
           :location="data.location"
           :contact="data.contacts"
           :workingHours="data.workingHours"
+          @waypointHit="changeActiveNav"
         />
         <Footer
           :logo="data.header.logo"

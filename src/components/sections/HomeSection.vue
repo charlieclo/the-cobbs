@@ -1,5 +1,16 @@
 <script setup>
+import { defineComponent } from 'vue'
+import { Waypoint } from 'vue-waypoint'
+
+defineComponent({
+  Waypoint
+})
+
 defineProps({
+  waypointActive: {
+    type: Boolean,
+    default: false  
+  },
   logoMobile: Object,
   title: String,
   description: String,
@@ -8,11 +19,29 @@ defineProps({
   image3: Object
 })
 
-const emit = defineEmits(['logo-click'])
+const emit = defineEmits(['logo-click', 'waypoint-hit'])
+
+const waypointChange = (state) => {
+  if (state.going === 'IN') {
+    emit('waypoint-hit', 'home')
+  }
+}
+
+const waypointOptions = {
+  root: document,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: [0.5, 0.5],
+}
 </script>
 
 <template>
-  <div id="home" class="main-home">
+  <Waypoint
+    :active="waypointActive"
+    :options="waypointOptions"
+    id="home"
+    class="main-home"
+    @change="waypointChange"
+  >
     <div class="home-header">
       <img
         :src="logoMobile.node.mediaItemUrl"
@@ -36,7 +65,7 @@ const emit = defineEmits(['logo-click'])
         <img :src="image3.node.mediaItemUrl" loading="lazy" />
       </div>
     </div>
-  </div>
+  </Waypoint>
 </template>
 
 <style scoped>

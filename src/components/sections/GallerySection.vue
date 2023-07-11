@@ -1,8 +1,17 @@
 <script setup>
-import { ref, toRefs } from 'vue'
+import { defineComponent, ref, toRefs } from 'vue'
 import { animate } from '@/util/animation'
+import { Waypoint } from 'vue-waypoint'
+
+defineComponent({
+  Waypoint
+})
 
 const props = defineProps({
+  waypointActive: {
+    type: Boolean,
+    default: false  
+  },
   title: String,
   description: String,
   images: {
@@ -11,9 +20,17 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['waypoint-hit'])
+
 const { images } = toRefs(props)
 
 const activeGallery = ref(0)
+
+const waypointChange = (state) => {
+  if (state.going === 'IN') {
+    emit('waypoint-hit', 'gallery')
+  }
+}
 
 const animateGalleryImage = (index) => {
   animate('.gallery-image', { opacity: 0 }, 0, () => {
@@ -31,10 +48,22 @@ const changeActiveGallery = (index) => {
     animateGalleryImage(images.value.length - 1)
   }
 }
+
+const waypointOptions = {
+  root: document,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: [0.5, 0.5],
+}
 </script>
 
 <template>
-  <div id="gallery" class="main-gallery">
+  <Waypoint
+    :active="waypointActive"
+    :options="waypointOptions"
+    id="gallery"
+    class="main-gallery"
+    @change="waypointChange"
+  >
     <div class="gallery-headline">GALLERY</div>
     <div v-html="title" class="gallery-title"></div>
     <div v-html="description" class="gallery-description"></div>
@@ -60,7 +89,7 @@ const changeActiveGallery = (index) => {
         />
       </div>
     </div>
-  </div>
+  </Waypoint>
 </template>
 
 <style scoped>

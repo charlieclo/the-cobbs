@@ -1,14 +1,31 @@
 <script setup>
-import { ref } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { animate } from '@/util/animation'
+import { Waypoint } from 'vue-waypoint'
 import MenuSlider from '@/components/MenuSlider.vue'
 
+defineComponent({
+  Waypoint
+})
+
 defineProps({
+  waypointActive: {
+    type: Boolean,
+    default: false  
+  },
   menuData: Object
 })
 
+const emit = defineEmits(['waypoint-hit'])
+
 const slider = ref(null)
 const activeMenu = ref('Mains')
+
+const waypointChange = (state) => {
+  if (state.going === 'IN') {
+    emit('waypoint-hit', 'menu')
+  }
+}
 
 const changeActiveMenu = (key) => {
   if (activeMenu.value !== key) {
@@ -19,10 +36,22 @@ const changeActiveMenu = (key) => {
     })
   }
 }
+
+const waypointOptions = {
+  root: document,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: [0.5, 0.5],
+}
 </script>
 
 <template>
-  <div id="menu" class="main-menu">
+  <Waypoint
+    :active="waypointActive"
+    :options="waypointOptions"
+    id="menu"
+    class="main-menu"
+    @change="waypointChange"
+  >
     <div class="menu-selector">
       <img
         v-for="(menu, index) of Object.entries(menuData)"
@@ -52,7 +81,7 @@ const changeActiveMenu = (key) => {
       <div id="menu-title" class="information-title">{{ activeMenu }}</div>
       <MenuSlider ref="slider" :images="menuData[activeMenu].products ?? []" />
     </div>
-  </div>  
+  </Waypoint>  
 </template>
 
 <style scoped>

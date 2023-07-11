@@ -1,13 +1,44 @@
 <script setup>
+import { defineComponent } from 'vue'
+import { Waypoint } from 'vue-waypoint'
+
+defineComponent({
+  Waypoint
+})
+
 defineProps({
+  waypointActive: {
+    type: Boolean,
+    default: false  
+  },
   title: String,
   description: String,
   image: Object
 })
+
+const emit = defineEmits(['waypoint-hit'])
+
+const waypointChange = (state) => {
+  if (state.going === 'IN') {
+    emit('waypoint-hit', 'about')
+  }
+}
+
+const waypointOptions = {
+  root: document,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: [0.5, 0.5],
+}
 </script>
 
 <template>
-  <div id="about" class="main-about">
+  <Waypoint
+    :active="waypointActive"
+    :options="waypointOptions"
+    id="about"
+    class="main-about"
+    @change="waypointChange"
+  >
     <div class="about-image">
       <img :src="image.node.mediaItemUrl" loading="lazy" />
     </div>
@@ -16,7 +47,7 @@ defineProps({
       <div v-html="title" class="information-title"></div>
       <div v-html="description" class="information-description"></div>
     </div>
-  </div>
+  </Waypoint>
 </template>
 
 <style scoped>
