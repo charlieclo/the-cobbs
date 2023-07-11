@@ -82,7 +82,7 @@ const slideChange = () => {
     </div>
     <div class="event-information-slider">
       <img
-        src="@/assets/Chevron Left.svg"
+        src="@/assets/icons/chevron-left.svg"
         class="slider-chevron"
         @click="slide(activeEvent - 1)"
       />
@@ -95,7 +95,7 @@ const slideChange = () => {
         <div v-html="moment(eventData[activeEvent].date, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase()" class="slider-date"></div>
       </a>
       <img
-        src="@/assets/Chevron Right.svg"
+        src="@/assets/icons/chevron-right.svg"
         class="slider-chevron"
         @click="slide(activeEvent + 1)"
       />

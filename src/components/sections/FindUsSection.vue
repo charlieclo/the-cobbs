@@ -21,7 +21,7 @@ defineProps({
         rel="noopener noreferrer"
         class="information-direction"
       >
-        GET DIRECTIONS <img src="@/assets/Arrow.svg" loading="lazy" />
+        GET DIRECTIONS <img src="@/assets/icons/arrow.svg" loading="lazy" />
       </a>
       <div class="information-opening">
         <div class="information-headline">OPENING HOURS</div>

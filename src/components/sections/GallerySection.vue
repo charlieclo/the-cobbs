@@ -51,11 +51,11 @@ const changeActiveGallery = (index) => {
       </div>
       <div class="information-control">
         <img
-          src="@/assets/Chevron Left.svg"
+          src="@/assets/icons/chevron-left.svg"
           @click="changeActiveGallery(activeGallery - 1)"
         />
         <img
-          src="@/assets/Chevron Right.svg"
+          src="@/assets/icons/chevron-right.svg"
           @click="changeActiveGallery(activeGallery + 1)"
         />
       </div>
