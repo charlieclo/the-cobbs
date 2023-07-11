@@ -41,7 +41,7 @@ const promo = ref(null)
 const header = ref(null)
 
 const togglePromo = (toggle) => {
-  promo.value.togglePromo(toggle)
+  if (promo.value !== null) promo.value.togglePromo(toggle)
 }
 
 const changeActiveNav = (nav) => {
@@ -68,7 +68,11 @@ const moveToSection = (nav) => {
     </pre> -->
     <Main>
       <template #promo>
-        <Promo ref="promo" :image="data.promo.image" />
+        <Promo
+          ref="promo"
+          v-if="data.promo.image !== null"
+          :image="data.promo.image"
+        />
       </template>
       <template #header>
         <Header
