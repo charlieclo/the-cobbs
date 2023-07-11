@@ -41,7 +41,6 @@ const promo = ref(null)
 const header = ref(null)
 
 const togglePromo = (toggle) => {
-  console.log(toggle)
   promo.value.togglePromo(toggle)
 }
 
