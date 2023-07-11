@@ -14,6 +14,7 @@ onMounted(() => {
     <div class="main-content">
       <slot name="content" />
     </div>
+    <slot name="rsvp" />
   </main>
 </template>
 

@@ -15,13 +15,19 @@ const heroText = ref(null)
 
 const heroTextDragHandler = ({ movement: [x, y], dragging }) => {
   if (dragging && y < 0) {
-    $('.main-content').css({ transform: `translateY(${y}px)` })
+    $('.main-content').css({
+      transform: `translateY(${y}px)`,
+      position: 'relative',
+      zIndex: 97
+    })
   } else if (!dragging && y <= -120) {
     animate('.main-content', { scrollTop: 0 }, 0, () => {
       animate('.main', { scrollTop: $('.main').scrollTop() + $('.main-content').offset().top }, 1000, () => {
         $('.main-content').css({
           transition: 'transform 0s',
-          transform: `translateY(0px)`
+          transform: `translateY(0px)`,
+          position: 'static',
+          zIndex: 0
         })
         $('.header-logo-mobile').addClass('display-none')
         $('#hero').addClass('display-none')
@@ -32,7 +38,9 @@ const heroTextDragHandler = ({ movement: [x, y], dragging }) => {
   } else if (!dragging) {
     $('.main-content').css({ 
       transition: 'transform 1s ease-out',
-      transform: `translateY(0px)`
+      transform: `translateY(0px)`,
+      position: 'static',
+      zIndex: 0
     })
     return
   }
@@ -51,6 +59,7 @@ const checkMimeType = (storedMimeType, mimeType) => {
 const navigateToHomeSection = () => {
   emit('click-more', 'home')
   animate('.main-content', { scrollTop: 0 }, 0, () => {
+    $('.rsvp-button').addClass('no-rotate');
     animate('.main', { scrollTop: $('.main').scrollTop() + $('.main-content').offset().top }, 500, () => {
       $('.header-logo-mobile').addClass('display-none')
       $('#hero').addClass('display-none')

@@ -20,6 +20,7 @@ const onLogoClick = () => {
   $('.header-logo-mobile').removeClass('display-none')
   $('#hero').removeClass('display-none')
   $('.main').scrollTop($('.main-content').offset().top - offset);
+  $('.rsvp-button').removeClass('no-rotate');
   animate('.main', { scrollTop: $('#hero').offset().top }, 1000, () => {
     $('.main-content').scrollTop(0)
   })
@@ -30,6 +31,7 @@ const moveToSection = (menuId) => {
   if ($('#hero').offset().top === 0 && !($('#hero').hasClass('display-none'))) {
     animate('.main-content', { scrollTop: $('#hero').outerHeight() }, 0, () => {
       animate('.main-content', { scrollTop: $(`#${menuId}`).offset().top }, 0, () => {
+        $('.rsvp-button').addClass('no-rotate');
         animate('.main', { scrollTop: $('.main-content').offset().top }, 500, () => {
           $('.header-logo-mobile').addClass('display-none')
           $('#hero').addClass('display-none')

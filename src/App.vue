@@ -34,6 +34,7 @@ import Event from '@/components/sections/EventSection.vue'
 import Gallery from '@/components/sections/GallerySection.vue'
 import FindUs from '@/components/sections/FindUsSection.vue'
 import Footer from '@/components/Footer.vue'
+import RSVPButton from '@/components/RSVPButton.vue'
 
 const header = ref(null)
 
@@ -111,6 +112,9 @@ const moveToSection = (nav) => {
           :company="data.footer.company"
           @navClick="moveToSection"
         />
+      </template>
+      <template #rsvp>
+        <RSVPButton :url="data.contacts.rsvpUrl" />
       </template>
     </Main>
   </template>
