@@ -8,6 +8,8 @@ defineProps({
   logoMobile: Object
 })
 
+const emit = defineEmits(['toggle-promo'])
+
 const activeNav = ref('')
 
 const changeActiveNav = (nav) => {
@@ -16,6 +18,7 @@ const changeActiveNav = (nav) => {
 
 const onLogoClick = () => {
   changeActiveNav('')
+  emit('toggle-promo', true)
   const offset = $('.main-content').offset().top - $('.main').scrollTop();
   $('.header-logo-mobile').removeClass('display-none')
   $('#hero').removeClass('display-none')

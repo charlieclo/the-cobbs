@@ -9,6 +9,7 @@ onMounted(() => {
 
 <template>
   <main class="main">
+    <slot name="promo" />
     <slot name="header" />
     <slot name="hero" />
     <div class="main-content">

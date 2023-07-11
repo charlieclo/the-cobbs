@@ -25,6 +25,7 @@ const Main = defineAsyncComponent(() => import('@/views/Main.vue'))
 const Loading = defineAsyncComponent(() => import('@/views/Loading.vue'))
 
 // Components
+const Promo = defineAsyncComponent(() => import('@/components/sections/PromoSection.vue'))
 const Header = defineAsyncComponent(() => import('@/components/Header.vue'))
 const Hero = defineAsyncComponent(() => import('@/components/sections/HeroSection.vue'))
 const Home = defineAsyncComponent(() => import('@/components/sections/HomeSection.vue'))
@@ -36,7 +37,13 @@ const FindUs = defineAsyncComponent(() => import('@/components/sections/FindUsSe
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 const RSVPButton = defineAsyncComponent(() => import('@/components/RSVPButton.vue'))
 
+const promo = ref(null)
 const header = ref(null)
+
+const togglePromo = (toggle) => {
+  console.log(toggle)
+  promo.value.togglePromo(toggle)
+}
 
 const changeActiveNav = (nav) => {
   header.value.changeActiveNav(nav)
@@ -61,11 +68,15 @@ const moveToSection = (nav) => {
       <span>{{ errorMessage }}</span>
     </pre> -->
     <Main>
+      <template #promo>
+        <Promo ref="promo" :image="data.promo.image" />
+      </template>
       <template #header>
         <Header
           ref="header"
           :logo="data.header.logo"
           :logoMobile="data.header.logoMobile"
+          @togglePromo="togglePromo"
         />
       </template>
       <template #hero>
