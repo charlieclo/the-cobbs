@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, defineAsyncComponent } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import { GET_MAIN_PAGE_SETTINGS, GET_GALLERY_IMAGES } from '@/graphql/query'
 import { initiateMenuData } from '@/util/menu'
@@ -21,20 +21,20 @@ const {
 const galleryImages = computed(() => galleryImagesResult.value?.mainPages.nodes[0].gallerySettings ?? {})
 
 // Views
-import Main from '@/views/Main.vue'
-import Loading from '@/views/Loading.vue'
+const Main = defineAsyncComponent(() => import('@/views/Main.vue'))
+const Loading = defineAsyncComponent(() => import('@/views/Loading.vue'))
 
 // Components
-import Header from '@/components/Header.vue'
-import Hero from '@/components/sections/HeroSection.vue'
-import Home from '@/components/sections/HomeSection.vue'
-import About from '@/components/sections/AboutSection.vue'
-import Menu from '@/components/sections/MenuSection.vue'
-import Event from '@/components/sections/EventSection.vue'
-import Gallery from '@/components/sections/GallerySection.vue'
-import FindUs from '@/components/sections/FindUsSection.vue'
-import Footer from '@/components/Footer.vue'
-import RSVPButton from '@/components/RSVPButton.vue'
+const Header = defineAsyncComponent(() => import('@/components/Header.vue'))
+const Hero = defineAsyncComponent(() => import('@/components/sections/HeroSection.vue'))
+const Home = defineAsyncComponent(() => import('@/components/sections/HomeSection.vue'))
+const About = defineAsyncComponent(() => import('@/components/sections/AboutSection.vue'))
+const Menu = defineAsyncComponent(() => import('@/components/sections/MenuSection.vue'))
+const Event = defineAsyncComponent(() => import('@/components/sections/EventSection.vue'))
+const Gallery = defineAsyncComponent(() => import('@/components/sections/GallerySection.vue'))
+const FindUs = defineAsyncComponent(() => import('@/components/sections/FindUsSection.vue'))
+const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
+const RSVPButton = defineAsyncComponent(() => import('@/components/RSVPButton.vue'))
 
 const header = ref(null)
 
