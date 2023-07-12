@@ -168,6 +168,7 @@ const waypointOptions = {
   display: table;
   -webkit-border-horizontal-spacing: 0;
   -webkit-border-vertical-spacing: 21px;
+  border-spacing: 0 21px;
 }
 
 .information-opening>div:last-child>div,
@@ -248,6 +249,7 @@ const waypointOptions = {
   .information-contacts>div:last-child {
     -webkit-border-horizontal-spacing: 11px;
     -webkit-border-vertical-spacing: 21px;
+    border-spacing: 11px 21px;
   }
 
   .information-opening>div:last-child>div,

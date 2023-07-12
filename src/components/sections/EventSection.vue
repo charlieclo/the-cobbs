@@ -211,7 +211,12 @@ const waypointOptions = {
   padding: 25px 15px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: 15px;
+}
+
+.event-information-slider>img {
+  max-height: 26px;
 }
 
 .slider-detail {
