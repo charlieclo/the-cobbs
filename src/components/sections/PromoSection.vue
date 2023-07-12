@@ -34,7 +34,7 @@ onMounted(() => {
 
 <template>
   <div v-if="show" class="promo" @click="togglePromo(false)">
-    <img :src="image.node.mediaItemUrl" loading="lazy" />
+    <img :src="image.node.mediaItemUrl" alt="promo-image" loading="lazy" />
     <div class="promo-notification">Click anywhere outside to close this pop-up</div>
   </div>
 </template>

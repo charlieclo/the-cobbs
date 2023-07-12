@@ -27,11 +27,12 @@ defineExpose({
 <template>
   <div class="menu-slider">
     <div class="slider-image">
-      <img :src="images[activeDots].node.mediaItemUrl" loading="lazy" />
+      <img :src="images[activeDots].node.mediaItemUrl" alt="slider-image" loading="lazy" />
     </div>
     <div class="slider-control">
       <img
         src="@/assets/icons/chevron-left.svg"
+        alt="chevron-left"
         class="slider-chevron"
         @click="changeActiveDots(activeDots - 1)"
         />
@@ -45,6 +46,7 @@ defineExpose({
       </div>
       <img
         src="@/assets/icons/chevron-right.svg"
+        alt="chevron-right"
         class="slider-chevron"
         @click="changeActiveDots(activeDots + 1)"
       />

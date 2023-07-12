@@ -40,7 +40,7 @@ const waypointOptions = {
     @change="waypointChange"
   >
     <div class="about-image">
-      <img :src="image.node.mediaItemUrl" loading="lazy" />
+      <img :src="image.node.mediaItemUrl" alt="about-image" loading="lazy" />
     </div>
     <div class="about-information">
       <div class="information-headline">ABOUT THE COBBS</div>

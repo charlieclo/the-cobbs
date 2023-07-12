@@ -109,6 +109,7 @@ const waypointOptions = {
     <div class="event-information-slider">
       <img
         src="@/assets/icons/chevron-left.svg"
+        alt="chevron-left"
         class="slider-chevron"
         @click="slide(activeEvent - 1)"
       />
@@ -122,12 +123,13 @@ const waypointOptions = {
       </a>
       <img
         src="@/assets/icons/chevron-right.svg"
+        alt="chevron-right"
         class="slider-chevron"
         @click="slide(activeEvent + 1)"
       />
     </div>
     <div class="event-image">
-      <img :src="eventData[activeEvent].image.node.mediaItemUrl" />
+      <img :src="eventData[activeEvent].image.node.mediaItemUrl" alt="event-image" />
     </div>
     <div class="event-image-mobile">
       <swiper
@@ -140,7 +142,7 @@ const waypointOptions = {
           v-for="(event, index) in eventData"
           :key="`slide-${index}`"
         >
-        <img :src="event.image.node.mediaItemUrl" />
+        <img :src="event.image.node.mediaItemUrl" alt="event-image-mobile" />
         </swiper-slide>
       </swiper>
     </div>

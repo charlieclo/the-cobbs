@@ -76,6 +76,7 @@ const navigateToHomeSection = () => {
     <img
       v-if="checkMimeType(background.node.mimeType, 'image')"
       :src="background.node.mediaItemUrl"
+      alt="hero-image"
       loading="lazy"
       class="hero-background"
     />

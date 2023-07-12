@@ -57,6 +57,7 @@ const waypointOptions = {
         v-for="(menu, index) of Object.entries(menuData)"
         :key="`menuCategory-${index}`"
         :src="menu[1].category.node.mediaItemUrl"
+        :alt="`menu-category-${index + 1}`"
         :class="`category-${menu[0].toLowerCase()}`"
         loading="lazy"
         @click="changeActiveMenu(menu[0])"

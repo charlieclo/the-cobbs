@@ -59,10 +59,20 @@ defineExpose({
 <template>
   <header class="header">
     <div class="header-logo">
-      <img :src="logo.node.mediaItemUrl" loading="lazy" @click="onLogoClick()" />
+      <img
+        :src="logo.node.mediaItemUrl"
+        alt="header-logo"
+        loading="lazy"
+        @click="onLogoClick()"
+      />
     </div>
     <div class="header-logo-mobile">
-      <img :src="logoMobile.node.mediaItemUrl" loading="lazy" @click="onLogoClick()" />
+      <img
+        :src="logoMobile.node.mediaItemUrl"
+        alt="header-logo-mobile"
+        loading="lazy"
+        @click="onLogoClick()"
+      />
     </div>
     <div class="header-navigation">
       <a
