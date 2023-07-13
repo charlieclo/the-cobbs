@@ -88,7 +88,9 @@ const waypointOptions = {
 .main-find-us {
   display: flex;
   flex-direction: column;
-  background-color: var(--cobbs-grey);
+  background-image: url('@/assets/textures/grey-texture-half.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .find-us-image {

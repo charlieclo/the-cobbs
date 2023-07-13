@@ -76,7 +76,9 @@ const waypointOptions = {
   justify-content: center;
   align-items: center;
   /* gap: 70px; */
-  background-color: var(--cobbs-black);
+  background-image: url('@/assets/textures/black-texture-full.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .home-header {

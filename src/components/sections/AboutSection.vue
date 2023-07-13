@@ -54,7 +54,9 @@ const waypointOptions = {
 .main-about {
   display: flex;
   flex-direction: column;
-  background-color: var(--cobbs-dark-beige);
+  background-image: url('@/assets/textures/brown-texture-half.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .main-about>div {

@@ -102,7 +102,9 @@ const waypointOptions = {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--cobbs-beige);
+  background-image: url('@/assets/textures/brown-texture-full.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .gallery-headline {

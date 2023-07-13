@@ -93,7 +93,9 @@ const waypointOptions = {
 
 .menu-selector {
   display: none;
-  background-color: var(--cobbs-dark-beige);
+  background-image: url('@/assets/textures/brown-texture-half.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .menu-selector>img {
@@ -160,7 +162,9 @@ const waypointOptions = {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--cobbs-grey);
+  background-image: url('@/assets/textures/grey-texture-half.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .information-headline {
