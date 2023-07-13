@@ -43,17 +43,17 @@ const changeActiveEvent = (index) => {
   if (index >= 0 && index < eventData.value.length && activeEvent.value !== index) {
     animate('.event-image', { opacity: 0 }, 0, () => {
       activeEvent.value = index
-      animate('.event-image', { opacity: 1}, 500)
+      animate('.event-image', { opacity: 1 }, 500)
     })
   } else if (index >= eventData.value.length) {
     animate('.event-image', { opacity: 0 }, 0, () => {
       activeEvent.value = 0
-      animate('.event-image', { opacity: 1}, 500)
+      animate('.event-image', { opacity: 1 }, 500)
     })
   } else if (index < 0) {
     animate('.event-image', { opacity: 0 }, 0, () => {
       activeEvent.value = eventData.value.length - 1
-      animate('.event-image', { opacity: 1}, 500)
+      animate('.event-image', { opacity: 1 }, 500)
     })
   }
 }
