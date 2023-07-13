@@ -16,6 +16,16 @@ const changeActiveDots = (index) => {
       activeDots.value = index
       animate('.slider-image', { opacity: 1 }, 150)
     })
+  } else if (index >= images.value.length) {
+    animate('.slider-image', { opacity: 0 }, 0, () => {
+      activeDots.value = 0
+      animate('.slider-image', { opacity: 1 }, 150)
+    })
+  } else if (index < 0) {
+    animate('.slider-image', { opacity: 0 }, 0, () => {
+      activeDots.value = images.value.length - 1
+      animate('.slider-image', { opacity: 1 }, 150)
+    })
   }
 }
 
