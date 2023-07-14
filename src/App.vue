@@ -67,10 +67,6 @@ const changeWaypointActive = (active) => {
     <Loading />
   </template>
   <template v-else>
-    <!-- <h6 style="color: black;">{{ JSON.stringify(promo) }}</h6>
-    <pre style="color: black">Bad:
-      <span>{{ errorMessage }}</span>
-    </pre> -->
     <Main>
       <template #promo>
         <Promo
