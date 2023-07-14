@@ -67,7 +67,7 @@ const slide = (index) => {
     activeEvent.value = eventData.value.length - 1
   }
 
-  eventSwiper.value.slideTo(activeEvent.value)
+  eventSwiper.value.slideToLoop(activeEvent.value)
 }
 
 const slideChange = () => {
