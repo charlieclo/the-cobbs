@@ -86,6 +86,7 @@ const navigateToHomeSection = () => {
       autoplay
       muted
       loop
+      playsinline
       class="hero-background"
     />
     <div
