@@ -219,6 +219,7 @@ const waypointOptions = {
 
 .event-information-slider>img {
   max-height: 26px;
+  cursor: pointer;
 }
 
 .slider-detail {

@@ -149,6 +149,7 @@ const waypointOptions = {
   letter-spacing: 1.7px;
   text-align: center;
   color: var(--cobbs-black);
+  cursor: pointer;
 }
 
 .selector-tab.active {
