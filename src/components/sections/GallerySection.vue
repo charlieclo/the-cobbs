@@ -72,7 +72,6 @@ const waypointOptions = {
         v-if="Array.isArray(images) && images.length"
         :src="images[activeGallery].node.mediaItemUrl"
         alt="gallery-image"
-        loading="lazy"
       />
     </div>
     <div class="gallery-information">

@@ -37,7 +37,7 @@ defineExpose({
 <template>
   <div class="menu-slider">
     <div class="slider-image">
-      <img :src="images[activeDots].node.mediaItemUrl" alt="slider-image" loading="lazy" />
+      <img :src="images[activeDots].node.mediaItemUrl" alt="slider-image" />
     </div>
     <div class="slider-control">
       <img

@@ -40,7 +40,7 @@ const waypointOptions = {
     @change="waypointChange"
   >
     <div class="find-us-image">
-      <img :src="location.image.node.mediaItemUrl" alt="find-us-image" loading="lazy" />
+      <img :src="location.image.node.mediaItemUrl" alt="find-us-image" />
     </div>
     <div class="find-us-information">
       <div class="information-headline">ADDRESS</div>
@@ -52,7 +52,7 @@ const waypointOptions = {
         rel="noopener noreferrer"
         class="information-direction"
       >
-        GET DIRECTIONS <img src="@/assets/icons/arrow.svg" alt="arrow" loading="lazy" />
+        GET DIRECTIONS <img src="@/assets/icons/arrow.svg" alt="arrow" />
       </a>
       <div class="information-opening">
         <div class="information-headline">OPENING HOURS</div>

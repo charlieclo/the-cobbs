@@ -46,7 +46,6 @@ const waypointOptions = {
       <img
         :src="logoMobile.node.mediaItemUrl"
         alt="header-logo-mobile"
-        loading="lazy"
         @click="emit('logo-click')"
       />
     </div>
@@ -55,15 +54,15 @@ const waypointOptions = {
       <div v-html="description" class="information-description"></div>
     </div>
     <div class="home-image">
-      <img :src="image1.node.mediaItemUrl" alt="home-image1" loading="lazy" />
-      <img :src="image2.node.mediaItemUrl" alt="home-image2" loading="lazy" />
-      <img :src="image3.node.mediaItemUrl" alt="home-image3" loading="lazy" />
+      <img :src="image1.node.mediaItemUrl" alt="home-image1" />
+      <img :src="image2.node.mediaItemUrl" alt="home-image2" />
+      <img :src="image3.node.mediaItemUrl" alt="home-image3" />
     </div>
     <div class="home-image-mobile">
       <div>
-        <img :src="image1.node.mediaItemUrl" alt="home-image1-mobile" loading="lazy" />
-        <img :src="image2.node.mediaItemUrl" alt="home-image2-mobile" loading="lazy" />
-        <img :src="image3.node.mediaItemUrl" alt="home-image3-mobile" loading="lazy" />
+        <img :src="image1.node.mediaItemUrl" alt="home-image1-mobile" />
+        <img :src="image2.node.mediaItemUrl" alt="home-image2-mobile" />
+        <img :src="image3.node.mediaItemUrl" alt="home-image3-mobile" />
       </div>
     </div>
   </Waypoint>

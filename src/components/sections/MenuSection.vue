@@ -59,7 +59,6 @@ const waypointOptions = {
         :src="menu[1].category.node.mediaItemUrl"
         :alt="`menu-category-${index + 1}`"
         :class="`category-${menu[0].toLowerCase()}`"
-        loading="lazy"
         @click="changeActiveMenu(menu[0])"
       />
     </div>
