@@ -163,9 +163,7 @@ const waypointOptions = {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('@/assets/textures/grey-texture-half.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: var(--cobbs-grey);
 }
 
 .information-headline {
@@ -242,6 +240,9 @@ const waypointOptions = {
     flex-basis: 50%;
     height: auto;
     padding: 112px 0;
+    background-image: url('@/assets/textures/grey-texture-half.png');
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .information-headline {
