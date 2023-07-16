@@ -1,9 +1,11 @@
 import gql from 'graphql-tag'
 
 export const GET_MAIN_PAGE_SETTINGS = gql`
-  query GET_MAIN_PAGE_SETTINGS {
-    mainPages(where: {title: "Settings"}) {
+  query GET_MAIN_PAGE_SETTINGS($title: String!) {
+    mainPages(where: {title: $title}) {
       nodes {
+        id
+        title
         pageSettings {
           promo {
             image {
@@ -408,9 +410,11 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
 `
 
 export const GET_GALLERY_IMAGES = gql`
-  query GET_GALLERY_IMAGES {
-    mainPages(where: {title: "Gallery"}) {
+  query GET_GALLERY_IMAGES($title: String!) {
+    mainPages(where: {title: $title}) {
       nodes {
+        id
+        title
         gallerySettings {
           image1 {
             node {

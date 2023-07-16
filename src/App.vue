@@ -10,14 +10,14 @@ const {
   result: mainPageSettingsResult,
   error: mainPageSettingsError,
   loading: mainPageSettingsLoading
-} = useQuery(GET_MAIN_PAGE_SETTINGS)
+} = useQuery(GET_MAIN_PAGE_SETTINGS, { title: 'Settings' })
 const data = computed(() => mainPageSettingsResult.value?.mainPages.nodes[0].pageSettings ?? {})
 const errorMessage = computed(() => mainPageSettingsError.value ?? null)
 
 const {
   result: galleryImagesResult,
   loading: galleryImagesLoading
-} = useQuery(GET_GALLERY_IMAGES)
+} = useQuery(GET_GALLERY_IMAGES, { title: 'Gallery ' })
 const galleryImages = computed(() => galleryImagesResult.value?.mainPages.nodes[0].gallerySettings ?? {})
 
 // Views
