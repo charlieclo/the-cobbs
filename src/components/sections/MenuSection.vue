@@ -1,5 +1,5 @@
 <script setup>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref, toRefs } from 'vue'
 import { animate } from '@/util/animation'
 import { Waypoint } from 'vue-waypoint'
 import MenuSlider from '@/components/MenuSlider.vue'
@@ -8,18 +8,24 @@ defineComponent({
   Waypoint
 })
 
-defineProps({
+const props = defineProps({
   waypointActive: {
     type: Boolean,
     default: false  
   },
-  menuData: Object
+  menuData: {
+    type: Object,
+    default: () => {}
+  }
 })
 
 const emit = defineEmits(['waypoint-hit'])
 
+const { menuData } = toRefs(props)
+
 const slider = ref(null)
 const activeMenu = ref('Mains')
+const allImagesLoading = ref(true)
 
 const waypointChange = (state) => {
   if (state.going === 'IN') {
@@ -42,6 +48,29 @@ const waypointOptions = {
   rootMargin: "0px 0px 0px 0px",
   threshold: [0.5, 0.5],
 }
+
+onMounted(() => {
+  const imagePromises = []
+  for (const key in menuData.value) {
+    const products = menuData.value[key].products
+    if (Array.isArray(products) && products.length) {
+      imagePromises.push(products.map((product, index) => {
+        if (product !== null) {
+          return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = product.node.mediaItemUrl;
+            img.onload = resolve;
+            img.onerror = reject;
+          })
+        }
+      }))
+    }
+  }
+
+  Promise.allSettled(imagePromises).then(() => { 
+    allImagesLoading.value = false
+  })
+})
 </script>
 
 <template>
@@ -79,7 +108,11 @@ const waypointOptions = {
     <div class="menu-information">
       <div class="information-headline">OUR MENU</div>
       <div id="menu-title" class="information-title">{{ activeMenu }}</div>
-      <MenuSlider ref="slider" :images="menuData[activeMenu].products ?? []" />
+      <MenuSlider
+        v-if="!allImagesLoading"
+        ref="slider"
+        :images="menuData[activeMenu].products ?? []"
+      />
     </div>
   </Waypoint>  
 </template>

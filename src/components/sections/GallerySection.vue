@@ -1,5 +1,5 @@
 <script setup>
-import { defineComponent, ref, toRefs } from 'vue'
+import { defineComponent, onMounted, ref, toRefs } from 'vue'
 import { animate } from '@/util/animation'
 import { Waypoint } from 'vue-waypoint'
 
@@ -25,6 +25,7 @@ const emit = defineEmits(['waypoint-hit'])
 const { images } = toRefs(props)
 
 const activeGallery = ref(0)
+const allImagesLoading = ref(true)
 
 const waypointChange = (state) => {
   if (state.going === 'IN') {
@@ -54,6 +55,23 @@ const waypointOptions = {
   rootMargin: "0px 0px 0px 0px",
   threshold: [0.5, 0.5],
 }
+
+onMounted(() => {
+  const imagePromise = images.value.map((image, index) => {
+    if (image !== null && index > 0) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = image.node.mediaItemUrl;
+        img.onload = resolve;
+        img.onerror = reject;
+      })
+    }
+  })
+
+  Promise.allSettled(imagePromise).then(() => { 
+    allImagesLoading.value = false
+  })
+})
 </script>
 
 <template>
@@ -69,7 +87,7 @@ const waypointOptions = {
     <div v-html="description" class="gallery-description"></div>
     <div class="gallery-image">
       <img
-        v-if="Array.isArray(images) && images.length"
+        v-if="Array.isArray(images) && images.length && !allImagesLoading"
         :src="images[activeGallery].node.mediaItemUrl"
         alt="gallery-image"
       />
