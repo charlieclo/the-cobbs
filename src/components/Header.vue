@@ -62,7 +62,6 @@ defineExpose({
       <img
         :src="logo.node.mediaItemUrl"
         alt="header-logo"
-        loading="lazy"
         @click="onLogoClick()"
       />
     </div>
@@ -70,7 +69,6 @@ defineExpose({
       <img
         :src="logoMobile.node.mediaItemUrl"
         alt="header-logo-mobile"
-        loading="lazy"
         @click="onLogoClick()"
       />
     </div>

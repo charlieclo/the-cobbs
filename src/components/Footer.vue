@@ -21,10 +21,10 @@ const moveToSection = (nav) => {
 <template>
   <footer :style="{ backgroundImage: `url(${background.node.mediaItemUrl})`}" class="footer">
     <div class="footer-logo">
-      <img :src="logoMobile.node.mediaItemUrl" alt="footer-logo-mobile" loading="lazy" />
+      <img :src="logoMobile.node.mediaItemUrl" alt="footer-logo-mobile" />
     </div>
     <div class="footer-logo-mobile">
-      <img :src="logo.node.mediaItemUrl" alt="footer-logo" loading="lazy" />
+      <img :src="logo.node.mediaItemUrl" alt="footer-logo" />
     </div>
     <div class="footer-menu">
       <a
