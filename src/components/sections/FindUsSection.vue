@@ -153,11 +153,11 @@ const waypointOptions = {
 }
 
 .information-opening {
-  padding: 79px 17px 88px 15px;
+  padding: 59px 17px 36px 15px;
 }
 
 .information-contacts {
-  padding: 0 17px 140px 15px;
+  padding: 0 17px 59px 15px;
 }
 
 .information-opening .information-headline,
@@ -169,8 +169,8 @@ const waypointOptions = {
 .information-contacts>div:last-child {
   display: table;
   -webkit-border-horizontal-spacing: 0;
-  -webkit-border-vertical-spacing: 21px;
-  border-spacing: 0 21px;
+  -webkit-border-vertical-spacing: 17px;
+  border-spacing: 0 17px;
 }
 
 .information-opening>div:last-child>div,
@@ -261,14 +261,16 @@ const waypointOptions = {
 
   .information-opening>div:last-child>div>div:first-child,
   .information-contacts>div:last-child>div>div:first-child {
+    padding-bottom: 3px;
     display: table-cell;
-    font-size: 14px;
+    vertical-align: middle;
+    font-size: 12px;
   }
 
   .information-opening>div:last-child>div>div:last-child,
   .information-contacts>div:last-child>div>div:last-child {
     display: table-cell;
-    font-size: 2vw;
+    font-size: 28px;
   }
 }
 </style>
