@@ -200,13 +200,13 @@ const waypointOptions = {
   .information-title {
     padding-right: 3%;
     padding-left: 18%;
-    font-size: 115px;
+    font-size: 96px;
   }
 
   .information-description {
     width: 70%;
     padding-left: 18%;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .home-image {
