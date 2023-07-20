@@ -108,7 +108,7 @@ defineExpose({
 
 .slider-dots>div.active {
   opacity: 1;
-  background: var(--cobbs-gradient);
+  background: var(--cobbs-dark-beige);
 }
 
 .slider-chevron {
