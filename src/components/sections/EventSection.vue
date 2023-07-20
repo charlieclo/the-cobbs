@@ -113,14 +113,17 @@ const waypointOptions = {
         class="slider-chevron"
         @click="slide(activeEvent - 1)"
       />
-      <a
-        :href="eventData[activeEvent].url"
-        target="_blank"
-        class="slider-detail"
-      >
-        <div class="slider-title">{{ eventData[activeEvent].title.toUpperCase() }}</div>
+      <div class="slider-detail">
+        <div class="slider-headline">EVENTS</div>
+        <a
+          :href="eventData[activeEvent].url"
+          target="_blank"
+          class="slider-title"
+        >
+          {{ eventData[activeEvent].title.toUpperCase() }}
+        </a>
         <div v-html="moment(eventData[activeEvent].date, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase()" class="slider-date"></div>
-      </a>
+      </div>
       <img
         src="@/assets/icons/chevron-right.svg"
         alt="chevron-right"
@@ -218,7 +221,7 @@ const waypointOptions = {
 }
 
 .event-information-slider>img {
-  max-height: 26px;
+  height: 6vw;
   cursor: pointer;
 }
 
@@ -227,6 +230,20 @@ const waypointOptions = {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.slider-headline {
+  padding-bottom: 4px;
+  font-family: 'TT Norms Pro';
+  font-size: 3vw;
+  font-weight: 500;
+  line-height: 129%;
+  letter-spacing: 1.75px;
+  text-align: center;
+  background: var(--cobbs-gradient);
+  -webkit-text-fill-color: transparent;
+  background-clip: initial;
+  -webkit-background-clip: text;
 }
 
 .slider-title {
