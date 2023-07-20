@@ -273,7 +273,7 @@ const waypointOptions = {
 .event-image>img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .event-image-mobile {
@@ -296,7 +296,7 @@ const waypointOptions = {
 .event-image-mobile img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 1024px) {
@@ -325,7 +325,6 @@ const waypointOptions = {
 
 @media screen and (min-width: 1024px) and (min-height: 720px) {
   .main-event {
-    height: 100%;
     min-height: 100vh;
   }
 }
