@@ -1,6 +1,30 @@
 <script setup>
-import { onMounted } from 'vue'
-import { animate } from '@/util/animation' 
+import { onMounted, ref } from 'vue'
+import { isMobile } from 'mobile-device-detect'
+import { useWheel, useDrag } from '@vueuse/gesture'
+import { animate } from '@/util/animation'
+
+const emit = defineEmits(['scroll-to-top'])
+
+const mainContent = ref(null)
+
+useWheel(({ movement: [x, y], direction: [xDirection, yDirection], wheeling }) => {
+  if (wheeling && y <= -125 && yDirection === -1 && $('.main-content').scrollTop() === 0) {
+    emit('scroll-to-top')
+  }
+}, {
+  domTarget: mainContent,
+  enabled: !isMobile
+})
+
+useDrag(({ movement: [x, y], direction: [xDirection, yDirection], dragging }) => {
+  if (!dragging && y > 150 && yDirection > 0 && $('.main-content').scrollTop() === 0) {
+    emit('scroll-to-top')
+  }
+}, {
+  domTarget: mainContent,
+  enabled: isMobile
+})
 
 onMounted(() => {
   animate('.main', { opacity: 1 }, 1000)
@@ -12,7 +36,7 @@ onMounted(() => {
     <slot name="promo" />
     <slot name="header" />
     <slot name="hero" />
-    <div class="main-content">
+    <div ref="mainContent" class="main-content">
       <slot name="content" />
     </div>
     <slot name="rsvp" />

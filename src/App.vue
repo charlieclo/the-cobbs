@@ -67,7 +67,7 @@ const changeWaypointActive = (active) => {
     <Loading />
   </template>
   <template v-else>
-    <Main>
+    <Main @scrollToTop="onLogoClick">
       <template #promo>
         <Promo
           ref="promo"
