@@ -85,10 +85,10 @@ const moveToSection = (nav) => {
 
 .footer-menu>a {
   font-family: 'TT Norms Pro';
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: normal;
-  color: var(--cobbs-black);
+  color: var(--cobbs-grey);
   cursor: pointer;
 }
 
@@ -107,7 +107,8 @@ const moveToSection = (nav) => {
   line-height: 129%;
   letter-spacing: 2.56px;
   text-align: center;
-  color: var(--cobbs-black);
+  color: var(--cobbs-grey);
+  cursor: pointer;
 }
 
 .footer-disclaimer {
@@ -155,7 +156,7 @@ const moveToSection = (nav) => {
   }
 
   .footer-contacts {
-    padding: 0 40px 35px 0;
+    width: auto;
     flex-direction: row;
     justify-content: center;
     gap: 205px;
