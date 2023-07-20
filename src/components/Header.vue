@@ -19,7 +19,7 @@ const changeActiveNav = (nav) => {
 const onLogoClick = () => {
   changeActiveNav('')
   emit('toggle-waypoint', false)
-  emit('toggle-promo', true)
+  emit('toggle-promo', false)
   const offset = $('.main-content').offset().top - $('.main').scrollTop();
   $('.header-logo-mobile').removeClass('display-none')
   $('#hero').removeClass('display-none')
