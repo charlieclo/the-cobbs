@@ -143,6 +143,8 @@ const waypointOptions = {
 
 .information-direction {
   padding: 0 17px 0 15px;
+  display: flex;
+  gap: 15px;
   font-family: 'TT Norms Pro';
   font-size: 3.5vw;
   font-weight: 500;
