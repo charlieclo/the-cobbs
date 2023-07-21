@@ -39,6 +39,22 @@ const onSwiper = (swiper) => {
   eventSwiper.value = swiper
 }
 
+const formatEventDate = (startDate, endDate, mobile) => {
+  if (startDate === undefined || endDate === undefined) {
+    return 'Invalid Date'
+  }
+
+  if (startDate === endDate) {
+    return mobile
+      ? moment(startDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase()
+      : moment(startDate, 'MM/DD/YYYY').format('dddd<br />DD MMM YYYY').toUpperCase()
+  } else {
+    return mobile
+      ? moment(startDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase().concat(' - ', moment(endDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase())
+      : moment(startDate, 'MM/DD/YYYY').format('dddd<br />DD MMM YYYY').toUpperCase()
+  }
+}
+
 const changeActiveEvent = (index) => {
   if (index >= 0 && index < eventData.value.length && activeEvent.value !== index) {
     animate('.event-image', { opacity: 0 }, 0, () => {
@@ -103,7 +119,7 @@ const waypointOptions = {
         <div class="information-title">
           {{ event.title.toUpperCase() }}
         </div>
-        <div v-html="moment(event.date, 'MM/DD/YYYY').format('dddd<br />DD MMM YYYY').toUpperCase()" class="information-date"></div>
+        <div v-html="formatEventDate(event.startDate, event.endDate, false)" class="information-date"></div>
       </a>
     </div>
     <div class="event-information-slider">
@@ -122,7 +138,7 @@ const waypointOptions = {
         >
           {{ eventData[activeEvent].title.toUpperCase() }}
         </a>
-        <div v-html="moment(eventData[activeEvent].date, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase()" class="slider-date"></div>
+        <div v-html="formatEventDate(eventData[activeEvent].startDate, eventData[activeEvent].endDate, true)" class="slider-date"></div>
       </div>
       <img
         src="@/assets/icons/chevron-right.svg"

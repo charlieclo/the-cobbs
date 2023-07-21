@@ -301,7 +301,8 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
           event1 {
             title
             url
-            date
+            startDate
+            endDate
             image {
               node {
                 mediaItemUrl
@@ -313,7 +314,8 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
           event2 {
             title
             url
-            date
+            startDate
+            endDate
             image {
               node {
                 mediaItemUrl
@@ -325,7 +327,8 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
           event3 {
             title
             url
-            date
+            startDate
+            endDate
             image {
               node {
                 mediaItemUrl
@@ -337,7 +340,8 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
           event4 {
             title
             url
-            date
+            startDate
+            endDate
             image {
               node {
                 mediaItemUrl
@@ -349,7 +353,8 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
           event5 {
             title
             url
-            date
+            startDate
+            endDate
             image {
               node {
                 mediaItemUrl

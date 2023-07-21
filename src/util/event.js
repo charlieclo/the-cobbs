@@ -9,5 +9,5 @@ export function initiateEventData (data) {
     }
   }
 
-  return eventData.sort((o1, o2) => new Date(o1.date) - new Date(o2.date))
+  return eventData.sort((o1, o2) => new Date(o1.startDate) - new Date(o2.startDate))
 }
