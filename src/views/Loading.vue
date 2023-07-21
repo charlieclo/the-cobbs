@@ -3,7 +3,7 @@
 
 <template>
   <div class="loading">
-    <div class="loader"></div>
+    <img src="@/assets/icons/logo.svg" type="image/png" />
   </div>
 </template>
 
@@ -11,29 +11,37 @@
 .loading {
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--cobbs-dark-beige);
 }
 
-.loader {
-  border: 8px solid var(--cobbs-grey);
-  border-top: 8px solid var(--cobbs-gold);
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+.loading>img {
+  animation: shine 3s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes shine {
+  0% {
+    -webkit-mask-image: linear-gradient(90deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    mask-image: linear-gradient(90deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    -webkit-mask-size: 1000%;
+    mask-size: 1000%;
+    -webkit-mask-position: 0;
+    mask-position: 0;
+  }
+  100% {
+    transition: mask-position 2s ease,-webkit-mask-position 2s ease;
+    -webkit-mask-position: 150%;
+    mask-position: 150%;
+    opacity: 1;
+  }
 }
 
-@media screen and (min-width: 1024px) {
-  .loader {
-    border: 16px solid var(--cobbs-grey);
-    border-top: 16px solid var(--cobbs-gold);
+@media screen and (max-width: 292px) {
+  .loading>img {
+    width: 90%;
   }
 }
 </style>
