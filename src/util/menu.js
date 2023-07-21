@@ -1,7 +1,7 @@
 export const menus = [
   {
-    name: 'appertizer',
-    displayTitle: 'Appertizer'
+    name: 'brekkie',
+    displayTitle: 'Brekkie'
   },
   {
     name: 'boulangerie',
@@ -16,8 +16,8 @@ export const menus = [
     displayTitle: 'Desserts'
   },
   {
-    name: 'drinks',
-    displayTitle: 'Drinks'
+    name: 'beverages',
+    displayTitle: 'Beverages'
   }
 ]
 

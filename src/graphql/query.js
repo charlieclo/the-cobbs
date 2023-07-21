@@ -122,7 +122,7 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
               }
             }
           }
-          appertizer {
+          brekkie {
             categoryImage {
               node {
                 mediaItemUrl
@@ -254,7 +254,7 @@ export const GET_MAIN_PAGE_SETTINGS = gql`
               }
             }
           }
-          drinks {
+          beverages {
             categoryImage {
               node {
                 mediaItemUrl

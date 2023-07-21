@@ -243,7 +243,7 @@ onMounted(() => {
     left: 30%;
   }
 
-  .category-appertizer {
+  .category-brekkie {
     top: 10%;
     left: -5%;
   }
@@ -259,7 +259,7 @@ onMounted(() => {
     z-index: 1;
   }
 
-  .category-drinks {
+  .category-beverages {
     right: -1%;
     bottom: -2%;
   }
