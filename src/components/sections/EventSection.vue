@@ -39,19 +39,17 @@ const onSwiper = (swiper) => {
   eventSwiper.value = swiper
 }
 
-const formatEventDate = (startDate, endDate, mobile) => {
+const formatEventDate = (startDate, endDate) => {
   if (startDate === undefined || endDate === undefined) {
     return 'Invalid Date'
   }
 
-  if (startDate === endDate) {
-    return mobile
+  try {
+    return startDate === endDate
       ? moment(startDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase()
-      : moment(startDate, 'MM/DD/YYYY').format('dddd<br />DD MMM YYYY').toUpperCase()
-  } else {
-    return mobile
-      ? moment(startDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase().concat(' - ', moment(endDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase())
-      : moment(startDate, 'MM/DD/YYYY').format('dddd<br />DD MMM YYYY').toUpperCase()
+      : moment(startDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase().concat(' - ', moment(endDate, 'MM/DD/YYYY').format('dddd, DD MMM YYYY').toUpperCase())
+  } catch(err) {
+    return 'Invalid Date'
   }
 }
 
@@ -119,7 +117,7 @@ const waypointOptions = {
         <div class="information-title">
           {{ event.title.toUpperCase() }}
         </div>
-        <div v-html="formatEventDate(event.startDate, event.endDate, false)" class="information-date"></div>
+        <div v-html="formatEventDate(event.startDate, event.endDate)" class="information-date"></div>
       </a>
     </div>
     <div class="event-information-slider">
@@ -138,7 +136,7 @@ const waypointOptions = {
         >
           {{ eventData[activeEvent].title.toUpperCase() }}
         </a>
-        <div v-html="formatEventDate(eventData[activeEvent].startDate, eventData[activeEvent].endDate, true)" class="slider-date"></div>
+        <div v-html="formatEventDate(eventData[activeEvent].startDate, eventData[activeEvent].endDate)" class="slider-date"></div>
       </div>
       <img
         src="@/assets/icons/chevron-right.svg"
@@ -203,8 +201,9 @@ const waypointOptions = {
   align-self: center;
   padding: 0 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 8px;
   color: var(--cobbs-beige);
 }
