@@ -13,8 +13,8 @@ defineProps({
 
 const emit = defineEmits(['nav-click'])
 
-const moveToSection = (nav) => {
-  emit('nav-click', nav)
+const moveToSection = (nav, toMiddle) => {
+  emit('nav-click', nav, toMiddle)
 }
 </script>
 
@@ -30,7 +30,7 @@ const moveToSection = (nav) => {
       <a
         v-for="(nav, index) in navigations"
         :key="`footer-nav-${index}`"
-        @click="moveToSection(nav.id)"
+        @click="moveToSection(nav.id, nav.toMiddle)"
       >
         {{ nav.footerName }}
       </a>

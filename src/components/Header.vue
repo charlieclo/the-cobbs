@@ -30,11 +30,11 @@ const onLogoClick = () => {
   })
 }
 
-const moveToSection = (menuId) => {
+const moveToSection = (menuId, toMiddle = false) => {
   changeActiveNav(menuId)
   if ($('#hero').offset().top === 0 && !($('#hero').hasClass('display-none'))) {
     animate('.main-content', { scrollTop: $('#hero').outerHeight() }, 0, () => {
-      animate('.main-content', { scrollTop: $(`#${menuId}`).offset().top }, 0, () => {
+      animate('.main-content', { scrollTop: $(`#${menuId}`).offset().top - (toMiddle ? ($(window).height() / 2) - ($(`#${menuId}`).height() / 2) : 0) }, 0, () => {
         $('.rsvp-button').addClass('no-rotate');
         animate('.main', { scrollTop: $('.main-content').offset().top }, 500, () => {
           $('.header-logo-mobile').addClass('display-none')
@@ -45,7 +45,8 @@ const moveToSection = (menuId) => {
       })
     })
   } else {
-    $(`#${menuId}`).get(0).scrollIntoView({ behavior: 'smooth' })
+    if (toMiddle) $(`#${menuId}`).get(0).scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
+    else $(`#${menuId}`).get(0).scrollIntoView({ behavior: 'smooth' })
   }
 }
 
@@ -77,7 +78,7 @@ defineExpose({
         v-for="(nav, index) in navigations"
         :key="`nav-${index}`"
         :class="{ active: nav.id === activeNav }"
-        @click="moveToSection(nav.id)"
+        @click="moveToSection(nav.id, nav.toMiddle)"
       >
         {{ nav.name }}
       </a>

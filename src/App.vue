@@ -53,8 +53,8 @@ const onLogoClick = () => {
   header.value.onLogoClick()
 }
 
-const moveToSection = (nav) => {
-  header.value.moveToSection(nav)
+const moveToSection = (nav, toMiddle) => {
+  header.value.moveToSection(nav, toMiddle)
 }
 
 const changeWaypointActive = (active) => {

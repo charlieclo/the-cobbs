@@ -2,31 +2,37 @@ export const navigations = [
   {
     id: 'home',
     name: 'Home',
-    footerName: 'HOME'
+    footerName: 'HOME',
+    toMiddle: false
   },
   {
     id: 'about',
     name: 'About',
-    footerName: 'ABOUT'
+    footerName: 'ABOUT',
+    toMiddle: false
   },
   {
     id: 'menu',
     name: 'Menu',
-    footerName: 'MENU'
+    footerName: 'MENU',
+    toMiddle: false
   },
   {
     id: 'events',
     name: 'Events',
-    footerName: 'EVENTS'
+    footerName: 'EVENTS',
+    toMiddle: true
   },
   {
     id: 'gallery',
     name: 'Gallery',
-    footerName: 'GALLERY'
+    footerName: 'GALLERY',
+    toMiddle: false
   },
   {
     id: 'find-us',
     name: 'Find Us',
-    footerName: 'CONTACT US'
+    footerName: 'CONTACT US',
+    toMiddle: false
   }
 ]
