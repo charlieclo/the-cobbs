@@ -7,10 +7,15 @@ import { animate } from '@/util/animation'
 const emit = defineEmits(['scroll-to-top'])
 
 const mainContent = ref(null)
+const firstWheel = ref(0)
 
 useWheel(({ movement: [x, y], direction: [xDirection, yDirection], wheeling }) => {
-  if (wheeling && y <= -125 && yDirection === -1 && $('.main-content').scrollTop() === 0) {
-    emit('scroll-to-top')
+  if (wheeling && y <= 0 && yDirection === -1 && $('.main-content').scrollTop() === 0) {
+    if (firstWheel.value === 0) {
+      firstWheel.value = y
+    } else if (firstWheel.value === y) {
+      emit('scroll-to-top')
+    }
   }
 }, {
   domTarget: mainContent,
