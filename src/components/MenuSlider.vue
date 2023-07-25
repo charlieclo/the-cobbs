@@ -78,7 +78,6 @@ defineExpose({
 
 .slider-image>img {
   width: 100%;
-  height: 240px;
   object-fit: cover;
 }
 
@@ -115,17 +114,10 @@ defineExpose({
   cursor: pointer;
 }
 
-@media screen and (min-width: 768px) {
-  .slider-image>img {
-    height: 340px;
-  }
-}
-
 @media screen and (min-width: 1024px) {
   .menu-slider {
     width: 75%;
     height: 60%;
-    max-height: 480px;
   }
 
   .slider-control {

@@ -283,7 +283,7 @@ onMounted(() => {
 
   .information-title {
     padding: 28px 0 39px 0;
-    font-size: 115px;
+    font-size: 96px;
   }
 }
 </style>
