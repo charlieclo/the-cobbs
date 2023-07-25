@@ -206,13 +206,13 @@ onMounted(() => {
   .gallery-title {
     width: 67%;
     padding-bottom: 65px;
-    font-size: 115px;
+    font-size: 96px;
   }
 
   .gallery-description {
     width: 67%;
     padding-bottom: 79px;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .gallery-image {

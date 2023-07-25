@@ -147,13 +147,13 @@ const waypointOptions = {
     padding-top: 17px;
     padding-bottom: 51px;
     padding-left: 10%;
-    font-size: 115px;
+    font-size: 96px;
   }
 
   .information-description {
     width: 70%;
     padding-left: 10%;
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 </style>
