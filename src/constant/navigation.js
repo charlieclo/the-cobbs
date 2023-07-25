@@ -15,7 +15,7 @@ export const navigations = [
     id: 'menu',
     name: 'Menu',
     footerName: 'MENU',
-    toMiddle: false
+    toMiddle: true
   },
   {
     id: 'events',
