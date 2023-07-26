@@ -3,7 +3,7 @@
 
 <template>
   <div class="loading">
-    <img src="@/assets/icons/logo.svg" type="image/png" />
+    <img src="@/assets/icons/logo.svg" type="image/svg+xml" alt="logo" />
   </div>
 </template>
 
