@@ -106,6 +106,7 @@ const navigateToHomeSection = () => {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--cobbs-black);
 }
 
 .hero-background {
