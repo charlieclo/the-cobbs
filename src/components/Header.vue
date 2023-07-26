@@ -8,7 +8,7 @@ defineProps({
   logoMobile: Object
 })
 
-const emit = defineEmits(['toggle-promo', 'toggle-waypoint'])
+const emit = defineEmits(['toggle-wheel', 'toggle-promo', 'toggle-waypoint'])
 
 const activeNav = ref('')
 
@@ -33,6 +33,7 @@ const onLogoClick = () => {
 const moveToSection = (menuId, toMiddle = false) => {
   changeActiveNav(menuId)
   if ($('#hero').offset().top === 0 && !($('#hero').hasClass('display-none'))) {
+    emit('toggle-wheel', true)
     animate('.main-content', { scrollTop: $('#hero').outerHeight() }, 0, () => {
       animate('.main-content', { scrollTop: $(`#${menuId}`).offset().top - (toMiddle ? ($(window).height() / 2) - ($(`#${menuId}`).height() / 2) : 0) }, 0, () => {
         $('.rsvp-button').addClass('no-rotate');

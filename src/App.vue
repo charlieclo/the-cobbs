@@ -90,6 +90,7 @@ const changeWaypointActive = (active) => {
           ref="header"
           :logo="data.header.logo"
           :logoMobile="data.header.logoMobile"
+          @toggleWheel="toggleWheel"
           @togglePromo="togglePromo"
           @toggleWaypoint="changeWaypointActive"
         />
