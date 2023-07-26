@@ -37,12 +37,22 @@ const FindUs = defineAsyncComponent(() => import('@/components/sections/FindUsSe
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 const RSVPButton = defineAsyncComponent(() => import('@/components/RSVPButton.vue'))
 
+const main = ref(null)
 const promo = ref(null)
 const header = ref(null)
 const waypointActive = ref(false)
 
+const toggleWheel = (toggle) => {
+  main.value.toggleWheel(toggle)
+}
+
 const togglePromo = (toggle) => {
   if (promo.value !== null) promo.value.togglePromo(toggle)
+}
+
+const clickMore = (nav, wheelEnabled) => {
+  toggleWheel(wheelEnabled)
+  changeActiveNav(nav)
 }
 
 const changeActiveNav = (nav) => {
@@ -67,7 +77,7 @@ const changeWaypointActive = (active) => {
     <Loading />
   </template>
   <template v-else>
-    <Main @scrollToTop="onLogoClick">
+    <Main ref="main" @scrollToTop="onLogoClick">
       <template #promo>
         <Promo
           ref="promo"
@@ -88,7 +98,7 @@ const changeWaypointActive = (active) => {
         <Hero
           :title="data.hero.title"
           :background="data.hero.background"
-          @clickMore="changeActiveNav"
+          @clickMore="clickMore"
           @toggleWaypoint="changeWaypointActive"
         />
       </template>

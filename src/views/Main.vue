@@ -7,19 +7,18 @@ import { animate } from '@/util/animation'
 const emit = defineEmits(['scroll-to-top'])
 
 const mainContent = ref(null)
-const firstWheel = ref(0)
+const wheelEnabled = ref(false)
 
 useWheel(({ movement: [x, y], direction: [xDirection, yDirection], wheeling }) => {
-  if (wheeling && y <= 0 && yDirection === -1 && $('.main-content').scrollTop() === 0) {
-    if (firstWheel.value === 0) {
-      firstWheel.value = y
-    } else if (firstWheel.value === y) {
+  if (wheeling && yDirection === -1 && $('.main-content').scrollTop() === 0) {
+    if (wheelEnabled.value === true) {
+      toggleWheel(false)
       emit('scroll-to-top')
     }
   }
 }, {
   domTarget: mainContent,
-  enabled: !isMobile
+  enabled: wheelEnabled
 })
 
 useDrag(({ movement: [x, y], direction: [xDirection, yDirection], dragging }) => {
@@ -29,6 +28,14 @@ useDrag(({ movement: [x, y], direction: [xDirection, yDirection], dragging }) =>
 }, {
   domTarget: mainContent,
   enabled: isMobile
+})
+
+const toggleWheel = (toggle) => {
+  wheelEnabled.value = toggle
+}
+
+defineExpose({
+  toggleWheel
 })
 
 onMounted(() => {

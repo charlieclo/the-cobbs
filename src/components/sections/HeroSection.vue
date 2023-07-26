@@ -58,7 +58,7 @@ const checkMimeType = (storedMimeType, mimeType) => {
 }
 
 const navigateToHomeSection = () => {
-  emit('click-more', 'home')
+  emit('click-more', 'home', true)
   animate('.main-content', { scrollTop: 0 }, 0, () => {
     $('.rsvp-button').addClass('no-rotate');
     animate('.main', { scrollTop: $('.main').scrollTop() + $('.main-content').offset().top }, 500, () => {
