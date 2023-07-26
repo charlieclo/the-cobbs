@@ -116,9 +116,9 @@ const moveToSection = (nav, toMiddle) => {
   font-family: 'TT Norms Pro';
   font-size: 8px;
   font-weight: 400;
-  line-height: normal;
+  line-height: 140%;
   text-align: center;
-  color: var(--cobbs-black);
+  color: var(--cobbs-grey);
 }
 
 .footer-company {
@@ -128,7 +128,7 @@ const moveToSection = (nav, toMiddle) => {
   font-weight: 500;
   line-height: normal;
   text-align: center;
-  color: var(--cobbs-black);
+  color: var(--cobbs-grey);
 }
 
 @media screen and (min-width: 1024px) {
@@ -168,11 +168,11 @@ const moveToSection = (nav, toMiddle) => {
 
   .footer-disclaimer {
     padding: 0 15px 33px 15px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .footer-company {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 </style>
