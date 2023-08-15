@@ -165,6 +165,7 @@ onMounted(() => {
 
 .gallery-image>img {
   width: 100%;
+  object-fit: cover;
 }
 
 .gallery-information {
